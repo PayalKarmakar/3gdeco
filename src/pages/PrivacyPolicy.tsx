@@ -1,9 +1,44 @@
-import { Shield } from "lucide-react";
+import { Shield,  Phone, Mail} from "lucide-react";
 import { motion } from "framer-motion";
+import React, { useState } from "react";
 import logo from "../assets/images/3GDecoLogo-2.png";
 import privacyLock from "../assets/images/lock.png";
 
 export default function PrivacyPolicy() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const accordionItems = [
+    {
+      title: "How We Use Information",
+      content:
+        "We use your information to respond to inquiries and provide our services efficiently."
+    },
+    {
+      title: "Data Security",
+      content:
+        "Your information is protected using modern security practices and safeguards."
+    },
+    {
+      title: "Cookies Policy",
+      content:
+        "Cookies help improve browsing experience and website performance."
+    },
+    {
+      title: "Third Party Sharing",
+      content:
+        "We never sell personal information and only share when necessary."
+    },
+    {
+      title: "Your Rights",
+      content:
+        "You may request access, modification, or deletion of your information."
+    },
+    {
+      title: "Contact Us",
+      content:
+        "Feel free to contact us regarding any privacy concerns."
+    }
+  ];
   return (
     <>
       <div className="bg-[#F5F1EA] overflow-x-hidden">
@@ -514,8 +549,455 @@ export default function PrivacyPolicy() {
 
           </div>
 
-        </section>
-      
+       </section>
+
+       {/* Main Section Layout + Left Card + Content Area */}
+
+       <section className="bg-[#F8F5F0] py-20">
+
+        <div className="w-full max-w-[1400px] mx-auto px-8">
+
+          <div className="grid
+              grid-cols-1
+              lg:grid-cols-[280px_1fr]
+              gap-10
+              lg:gap-14">
+
+            {/* LEFT CARD */}
+            <div>
+
+              <div className="
+              bg-white
+              rounded-[24px]
+              shadow-[0_10px_40px_rgba(0,0,0,.08)]
+              overflow-hidden">
+
+                {accordionItems.map((item, index) => ( 
+                  <div
+                    key={index}
+                    onClick={() => setOpenIndex(index)}
+                    className={`
+                      flex items-center justify-between
+                      px-7 py-5
+                      border-b border-[#ECE6DD]
+                      cursor-pointer
+                      transition-all
+                      hover:bg-[#FCFAF7]
+
+                      ${openIndex === index
+                        ? "text-[#D89A2D] bg-[#FCFAF7]"
+                        : ""
+                      }
+                    `}
+                  >
+
+                    <div className="flex items-center gap-4">
+
+                      <div className="
+                      w-8 h-8
+                      rounded-full
+                      bg-[#F8F5F0]
+                      flex items-center justify-center">
+
+                        <span className="text-sm">✓</span>
+
+                      </div>
+
+                      <span
+                      className="font-medium text-[15px]"
+                      style={{
+                        fontFamily:"Parkinsans"
+                      }}
+                      >
+                        {item.title}
+                      </span>
+
+                    </div>
+
+                    <span
+                      className={`transition duration-300 ${
+                        openIndex === index
+                          ? "rotate-90 text-[#D89A2D]"
+                          : ""
+                      }`}>
+                      ›
+                    </span>
+
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+
+
+            {/* RIGHT CONTENT */}
+            <div>
+
+              <div className="
+                grid
+                grid-cols-1
+                xl:grid-cols-[1fr_400px]
+                gap-10
+                items-center">
+
+                {/* TEXT */}
+                <div>
+
+                  <h2
+                  className="
+                    text-[34px]
+                    md:text-[42px]
+                    xl:text-[52px]
+                    mb-6"
+                  style={{
+                    fontFamily:"Parkinsans",
+                    fontWeight:500
+                  }}
+                  >
+                    Information We Collect
+                  </h2>
+
+                  <p
+                  className="text-[#666]"
+                  style={{
+                    fontFamily:"Parkinsans"
+                  }}
+                  >
+                    We collect information you provide directly to us when you:
+                  </p>
+
+
+                  <div className="mt-10 space-y-7">
+
+                    <div className="flex gap-4 items-center">
+                      <span className="text-[#D89A2D] text-xl">✓</span>
+                      <span>Fill out forms on our website</span>
+                    </div>
+
+                    <div className="flex gap-4 items-center">
+                      <span className="text-[#D89A2D] text-xl">✓</span>
+                      <span>Request a consultation or quote</span>
+                    </div>
+
+                    <div className="flex gap-4 items-center">
+                      <span className="text-[#D89A2D] text-xl">✓</span>
+                      <span>Subscribe to our newsletter</span>
+                    </div>
+
+                    <div className="flex gap-4 items-center">
+                      <span className="text-[#D89A2D] text-xl">✓</span>
+                      <span>Communicate with our team</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                {/* IMAGE */}
+                <div>
+
+                  <div className="
+                  overflow-hidden
+                  rounded-[30px]
+                  shadow-[0_15px_50px_rgba(0,0,0,.1)]">
+
+                    <img
+                      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
+                      className="
+                      w-full
+                      h-[260px]
+                      md:h-[320px]
+                      xl:h-[400px]
+                      object-cover
+                      rounded-[30px]
+                      "
+                      alt=""
+                    />
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Accordion Section */}
+
+            <div className="mt-12 space-y-4">
+
+              {accordionItems.map((item, index) => (
+
+                <div
+                  key={index}
+                  className="
+                  bg-white
+                  rounded-[20px]
+                  border border-[#ECE6DD]
+                  overflow-hidden
+                  shadow-sm
+                  "
+                >
+
+                  {/* Header */}
+                  <button
+                    onClick={() =>
+                      setOpenIndex(openIndex === index ? -1 : index)
+                    }
+                    className="
+                    w-full
+                    px-6 md:px-8
+                    py-5
+                    flex
+                    items-center
+                    justify-between
+                    hover:bg-[#FCFAF7]
+                    transition-all
+                    "
+                  >
+
+                    <div className="flex items-center gap-5">
+
+                      <div
+                        className="
+                        w-10 h-10
+                        rounded-full
+                        border border-[#DDD]
+                        flex items-center justify-center
+                        "
+                      >
+                        ✓
+                      </div>
+
+                      <span
+                        className="text-[16px] md:text-[17px]"
+                        style={{
+                          fontFamily: "Parkinsans",
+                          fontWeight: 500
+                        }}
+                      >
+                        {item.title}
+                      </span>
+
+                    </div>
+
+                    <svg
+                      className={`transition duration-300 ${
+                        openIndex === index ? "rotate-180" : ""
+                      }`}
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke="#555"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+
+                  </button>
+
+                  {/* Content */}
+                  <div
+                    className={`
+                      overflow-hidden
+                      transition-all
+                      duration-300
+                      ${
+                        openIndex === index
+                          ? "max-h-[300px] px-8 pb-6"
+                          : "max-h-0"
+                      }
+                    `}
+                  >
+
+                    <p
+                      className="text-[#666] leading-8"
+                      style={{
+                        fontFamily: "Parkinsans"
+                      }}
+                    >
+                      {item.content}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       </section>
+
+       {/* Footer */}
+
+      <section className="bg-[#F8F5F0] pb-12 px-4 md:px-6">
+
+        <div
+          className="
+            w-full
+            max-w-[1400px]
+            mx-auto
+            rounded-[32px]
+            overflow-hidden
+            bg-[#120D09]
+            border border-[#2D2118]
+            shadow-[0_20px_60px_rgba(0,0,0,.15)]
+          "
+          style={{
+              background:
+                "linear-gradient(90deg,#0f0b08 0%,#1a120d 50%,#0f0b08 100%)"
+            }}
+        >
+
+          <div            
+            className="
+              grid
+              grid-cols-1
+              md:grid-cols-2
+              xl:grid-cols-[2fr_1fr_1fr]"
+          >
+
+            {/* Left */}
+            <div
+              className="
+                flex
+                items-center
+                gap-5
+                px-6
+                md:px-10
+                py-8
+                border-b
+                lg:border-b-0
+                lg:border-r
+                border-[#2B211A]
+              "
+            >
+              <div
+                className="
+                  w-16 h-16
+                  rounded-full
+                  border border-[#D89A2D]/30
+                  flex items-center justify-center
+                "
+              >
+                <Shield
+                  size={28}
+                  color="#D89A2D"
+                />
+              </div>
+
+              <div>
+
+                <h3
+                  className="
+                    text-white
+                    text-[22px]
+                    md:text-[26px]
+                    leading-tight
+                  "
+                  style={{
+                    fontFamily: "Parkinsans",
+                    fontWeight: 500
+                  }}
+                >
+                  Have any privacy related questions?
+                </h3>
+
+                <p
+                  className="text-[#D0C8BF] mt-2"
+                  style={{
+                    fontFamily: "Parkinsans"
+                  }}
+                >
+                  We're here to help you.
+                </p>
+
+              </div>
+            </div>
+
+
+            {/* Phone */}
+            <div
+              className="
+                flex
+                items-center
+                gap-4
+                px-8
+                py-8
+                border-b
+                lg:border-b-0
+                lg:border-r
+                border-[#2B211A]
+              "
+            >
+
+              <Phone
+                size={22}
+                color="#D89A2D"
+              />
+
+              <span
+                className="text-[#F5F1EA]"
+                style={{
+                  fontFamily: "Parkinsans"
+                }}
+              >
+                +91 83209 02030
+              </span>
+
+            </div>
+
+
+            {/* Email */}
+            <div
+              className="
+                flex
+                items-center
+                gap-4
+                px-8
+                py-8
+              "
+            >
+
+              <Mail
+                size={22}
+                color="#D89A2D"
+              />
+
+              <span
+                className="
+                  text-[#F5F1EA]
+                  break-all
+                "
+                style={{
+                  fontFamily: "Parkinsans"
+                }}
+              >
+                info@3gdecodesign.com
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+              
+
+
+
       </div>
     </>
   );
