@@ -9,8 +9,6 @@ import about1 from "../assets/images/about1.jpg";
 import about2 from "../assets/images/about2.jpg";
 import about3 from "../assets/images/about3.jpg";
 import about4 from "../assets/images/about4.jpg";
-import HeroSection from "./components/HeroSection";
-
 import {
   ArrowRight, 
   Star,
@@ -507,10 +505,453 @@ export default function App() {
         </div>
       </motion.nav>
 
-      {/* Hero Section - Premium Editorial Framing */}      
-      <HeroSection/>
+      {/* Hero Section - Premium Editorial Framing */}
+      {/* <section id="home" className="relative bg-[#6B625C]" style={{ paddingTop: '96px' }}> */}
+      <section
+        id="home"
+        className="relative bg-[#F3F1EC] pt-0 overflow-visible"
+      >
+        {/* Floating Hero Container - Decoria Editorial Luxury Composition */}
+        {/* <div className="px-4 md:px-6 lg:px-8 pb-8 md:pb-12" style={{ paddingTop: '12px' }}> */}
+        <div className="px-4 md:px-6 lg:px-6 pt-0 pb-0">
+          {/* <div className="relative h-screen min-h-[700px] md:min-h-[800px] lg:min-h-[900px] overflow-hidden" style={{ borderRadius: '32px', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}> */}
+          <div
+            className="relative h-screen min-h-[720px] md:min-h-[820px] lg:min-h-[920px] overflow-hidden"
+            style={{
+              borderRadius: "32px",
+              boxShadow: "0 25px 90px rgba(0,0,0,0.18)",
+            }}
+          >
+            {/* Background Image Carousel - Bright and Cinematic */}
+            <div className="absolute inset-0 z-0">
+              <Slider ref={sliderRef} {...carouselSettings} className="h-full">
+                {heroSlides.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="relative h-full min-h-[700px] md:min-h-[800px] lg:min-h-[900px]"
+                  >
+                    <motion.div
+                      initial={{ scale: 1.05, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `url(${slide.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      {/* Style-specific overlays */}
+                      {slide.style === "bright" && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#f3bb27]/10 via-transparent to-transparent" />
+                      )}
+                      {slide.style === "cinematic" && (
+                        // <div className="absolute inset-0 bg-gradient-to-br from-[#ea7a12]/15 via-[#000000]/10 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ea7a12]/8 via-[#000000]/5 to-transparent" />
+                      )}
+                      {slide.style === "architectural" && (
+                        // <div className="absolute inset-0 bg-gradient-to-r from-[#332C26]/10 via-transparent to-transparent" />
+                        <div className="bg-gradient-to-r from-[#332C26]/5 via-transparent to-transparent" />
+                      )}
+                    </motion.div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
 
-      {/* Animated Expertise Section - Blended with Hero */}
+            {/* Fixed Floating Editorial Card - Vertical Portrait */}
+            {/* <div className="relative z-20 max-w-7xl w-full mx-auto px-4 md:px-8 flex items-center h-full"></div> */}
+            <div className="relative z-20 max-w-7xl w-full mx-auto px-6 md:px-10 flex items-start h-full pt-24">
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1.4,
+                  delay: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="relative"
+                style={{
+                  animation: "heroFloat 6s ease-in-out infinite",
+                }}
+              >
+                {/* Card Layout 1 - Bright Editorial Luxury */}
+                {currentSlide === 0 && (
+                  <div
+                    // className="bg-[#F5F1EA]/98 backdrop-blur-sm border border-[#f3bb27]/20 w-full max-w-[360px] md:max-w-[420px] lg:max-w-[460px] mx-auto md:mx-0 md:ml-12 lg:ml-16 p-8 md:p-12 lg:p-16"
+                    className="bg-[#F5F1EA]/98 backdrop-blur-sm border border-[#f3bb27]/20 w-full max-w-[350px] md:max-w-[410px] lg:max-w-[430px] mx-auto md:mx-0 md:ml-12 lg:ml-16 p-8 md:p-12 lg:p-16"
+                    style={{
+                      borderRadius: "24px",
+                      boxShadow: "0 30px 80px rgba(0,0,0,0.12)",
+                    }}
+                  >
+                    {/* Gold Accent Line - Top */}
+                    <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] mb-8 md:mb-12" />
+
+                    {/* Editorial Typography - Airy Spacing */}
+                    <div className="mb-6 md:mb-10 relative">
+                      {heroSlides[0].titleLines.map((line, lineIndex) => (
+                        <div key={lineIndex} className="relative mb-2 md:mb-3">
+                          <h1
+                            className="text-[#332C26] relative"
+                            style={{
+                              fontFamily: "'Parkinsans', sans-serif",
+                              fontSize: "clamp(52px, 8vw, 76px)",
+                              fontWeight: 400,
+                              lineHeight: "92%",
+                              letterSpacing: "-0.02em",
+                            }}
+                          >
+                            {line}
+                            {/* Decorative Images - Right Side Asymmetry */}
+                            {lineIndex === 0 && (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.2 }}
+                                src={heroSlides[0].decorativeImages[0]}
+                                alt="Decor"
+                                className="hidden md:block absolute -right-16 lg:-right-20 -top-4 lg:-top-6 size-20 lg:size-28 rounded-full object-cover shadow-2xl border-4 border-[#f3bb27]/30"
+                              />
+                            )}
+                            {lineIndex === 2 && (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.4 }}
+                                src={heroSlides[0].decorativeImages[1]}
+                                alt="Decor"
+                                className="hidden md:block absolute -right-18 lg:-right-24 -bottom-6 lg:-bottom-8 size-16 lg:size-20 rounded-full object-cover shadow-2xl border-4 border-white"
+                              />
+                            )}
+                          </h1>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Luxury Subtitle */}
+                    <p
+                      className="text-[#332C26]/70 mb-8 md:mb-12 text-sm md:text-base"
+                      style={{
+                        fontFamily: "'Parkinsans', sans-serif",
+                        lineHeight: 1.8,
+                        fontWeight: 300,
+                      }}
+                    >
+                      {heroSlides[0].subtitle}
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col gap-3 md:gap-4">
+                      <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-8 py-4 bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] text-white hover:shadow-2xl hover:shadow-[#f3bb27]/40 transition-all flex items-center justify-center gap-3 group"
+                        style={{
+                          fontFamily: "'Parkinsans', sans-serif",
+                          fontWeight: 500,
+                          fontSize: "14px",
+                          letterSpacing: "0.02em",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        <span>Explore Our Projects</span>
+                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-8 py-4 border border-[#f3bb27]/30 text-[#332C26] hover:border-[#f3bb27] hover:bg-[#f3bb27]/10 transition-all"
+                        style={{
+                          fontFamily: "'Parkinsans', sans-serif",
+                          fontWeight: 500,
+                          fontSize: "14px",
+                          letterSpacing: "0.02em",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        Book Consultation
+                      </motion.button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Card Layout 2 - Cinematic Luxury p-10 md:p-14 lg:p-16*/}
+                {currentSlide === 1 && (
+                  <div
+                    className="bg-[#F5F1EA]/95 backdrop-blur-md border border-[#ea7a12]/15 w-full max-w-[360px] md:max-w-[420px] lg:max-w-[460px] mx-auto md:mx-0 md:ml-8 lg:ml-10 p-8 md:p-12 lg:p-14"
+                    style={{
+                      borderRadius: "28px",
+                      boxShadow: "0 30px 80px rgba(0,0,0,0.12)",
+                    }}
+                  >
+                    {/* Editorial Typography - Compact Cinematic */}
+                    <div className="mb-6 md:mb-8 relative">
+                      {heroSlides[1].titleLines.map((line, lineIndex) => (
+                        <div key={lineIndex} className="relative mb-1">
+                          <h1
+                            className="text-[#332C26] relative"
+                            style={{
+                              fontFamily: "'Parkinsans', sans-serif",
+                              fontSize: "clamp(52px, 8vw, 76px)",
+                              fontWeight: 400,
+                              lineHeight: "92%",
+                              letterSpacing: "-0.02em",
+                            }}
+                          >
+                            {line}
+                            {/* Decorative Images - Left Asymmetry */}
+                            {lineIndex === 1 && (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.2 }}
+                                src={heroSlides[1].decorativeImages[0]}
+                                alt="Decor"
+                                className="hidden md:block absolute -left-16 lg:-left-20 -top-8 lg:-top-10 size-20 lg:size-24 rounded-full object-cover shadow-2xl border-4 border-[#ea7a12]/20"
+                              />
+                            )}
+                            {lineIndex === 2 && (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.4 }}
+                                src={heroSlides[1].decorativeImages[1]}
+                                alt="Decor"
+                                className="hidden md:block absolute -right-12 lg:-right-16 top-1 lg:top-2 size-24 lg:size-32 rounded-full object-cover shadow-2xl border-4 border-white"
+                              />
+                            )}
+                          </h1>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Orange/Gold Divider */}
+                    <div className="flex items-center gap-2 mb-8 md:mb-10">
+                      <div className="w-10 md:w-12 h-px bg-gradient-to-r from-[#ea7a12] to-[#f3bb27]" />
+                      <div className="w-1.5 h-1.5 bg-[#f3bb27] rotate-45" />
+                    </div>
+
+                    {/* Luxury Subtitle */}
+                    <p
+                      className="text-[#332C26]/75 mb-8 md:mb-12 text-sm md:text-base"
+                      style={{
+                        fontFamily: "'Parkinsans', sans-serif",
+                        lineHeight: 1.7,
+                        fontWeight: 300,
+                      }}
+                    >
+                      {heroSlides[1].subtitle}
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col gap-4">
+                      <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-8 py-4 bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] text-white hover:shadow-2xl hover:shadow-[#f3bb27]/40 transition-all flex items-center justify-center gap-3 group"
+                        style={{
+                          fontFamily: "'Parkinsans', sans-serif",
+                          fontWeight: 500,
+                          fontSize: "14px",
+                          letterSpacing: "0.02em",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        <span>Explore Our Projects</span>
+                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-8 py-4 border border-[#f3bb27]/30 text-[#332C26] hover:border-[#f3bb27] hover:bg-[#f3bb27]/10 transition-all"
+                        style={{
+                          fontFamily: "'Parkinsans', sans-serif",
+                          fontWeight: 500,
+                          fontSize: "14px",
+                          letterSpacing: "0.02em",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        Book Consultation
+                      </motion.button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Card Layout 3 - Architectural Sophistication */}
+                {currentSlide === 2 && (
+                  <div
+                    className="bg-[#F5F1EA]/97 backdrop-blur-sm border border-[#332C26]/10 w-full max-w-[360px] md:max-w-[420px] lg:max-w-[460px] mx-auto md:mx-0 md:ml-16 lg:ml-20 p-10 md:p-12 lg:p-14"
+                    style={{
+                      borderRadius: "20px",
+                      boxShadow: "0 30px 80px rgba(0,0,0,0.12)",
+                    }}
+                  >
+                    {/* Gold Accent Line - Top */}
+                    <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] mb-8 md:mb-12" />
+
+                    {/* Editorial Typography - Minimal Layout */}
+                    <div className="mb-6 md:mb-10 relative">
+                      {heroSlides[2].titleLines.map((line, lineIndex) => (
+                        <div key={lineIndex} className="relative mb-2">
+                          <h1
+                            className="text-[#332C26] relative"
+                            style={{
+                              fontFamily: "'Parkinsans', sans-serif",
+                              fontSize: "clamp(52px, 8vw, 76px)",
+                              fontWeight: 400,
+                              lineHeight: "92%",
+                              letterSpacing: "-0.02em",
+                            }}
+                          >
+                            {line}
+                            {/* Decorative Images - Balanced Positioning */}
+                            {lineIndex === 0 && (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.2 }}
+                                src={heroSlides[2].decorativeImages[0]}
+                                alt="Decor"
+                                className="hidden md:block absolute -right-14 lg:-right-18 -top-3 lg:-top-4 size-18 lg:size-22 rounded-full object-cover shadow-xl border-4 border-[#332C26]/10"
+                              />
+                            )}
+                            {lineIndex === 2 && (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.4 }}
+                                src={heroSlides[2].decorativeImages[1]}
+                                alt="Decor"
+                                className="hidden md:block absolute -left-12 lg:-left-14 -bottom-4 lg:-bottom-6 size-22 lg:size-26 rounded-full object-cover shadow-xl border-4 border-white"
+                              />
+                            )}
+                          </h1>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Luxury Subtitle */}
+                    <p
+                      className="text-[#332C26]/65 mb-8 md:mb-12 text-sm md:text-base"
+                      style={{
+                        fontFamily: "'Parkinsans', sans-serif",
+                        lineHeight: 1.7,
+                        fontWeight: 300,
+                      }}
+                    >
+                      {heroSlides[2].subtitle}
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col gap-4">
+                      <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-8 py-4 bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] text-white hover:shadow-2xl hover:shadow-[#f3bb27]/40 transition-all flex items-center justify-center gap-3 group"
+                        style={{
+                          fontFamily: "'Parkinsans', sans-serif",
+                          fontWeight: 500,
+                          fontSize: "14px",
+                          letterSpacing: "0.02em",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        <span>Explore Our Projects</span>
+                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-8 py-4 border border-[#f3bb27]/30 text-[#332C26] hover:border-[#f3bb27] hover:bg-[#f3bb27]/10 transition-all"
+                        style={{
+                          fontFamily: "'Parkinsans', sans-serif",
+                          fontWeight: 500,
+                          fontSize: "14px",
+                          letterSpacing: "0.02em",
+                          borderRadius: "50px",
+                        }}
+                      >
+                        Book Consultation
+                      </motion.button>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </div>
+            <div
+              className="absolute z-40 bg-[#F5F1EA] backdrop-blur-md"
+              style={{
+                bottom: "42px",
+                right: "42px",
+                borderRadius: "22px",
+                padding: "16px 24px",
+                minWidth: "240px",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+              }}
+            >
+              <div className="flex items-center justify-between">
+                {/* Prev Next */}
+                <div className="flex items-center gap-5">
+                  <button
+                    onClick={() => sliderRef.current?.slickPrev()}
+                    className="flex items-center gap-2 text-[#A0A59D] hover:text-[#2A2D2A] transition-all"
+                    style={{
+                      fontFamily: "'Parkinsans', sans-serif",
+                      fontSize: "18px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    <ChevronLeft className="size-5" />
+                    Prev
+                  </button>
+
+                  <button
+                    onClick={() => sliderRef.current?.slickNext()}
+                    className="flex items-center gap-2 text-[#A0A59D] hover:text-[#2A2D2A] transition-all"
+                    style={{
+                      fontFamily: "'Parkinsans', sans-serif",
+                      fontSize: "18px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Next
+                    <ChevronRight className="size-5" />
+                  </button>
+                </div>
+
+                {/* Counter */}
+                <div
+                  className="text-[#2A2D2A]"
+                  style={{
+                    fontFamily: "'Parkinsans', sans-serif",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                  }}
+                >
+                  {currentSlide + 1}
+                  <span className="text-[#A0A59D]"> – {heroSlides.length}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Animation Keyframes */}
+        <style>{`
+          @keyframes heroFloat {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-12px);
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* Animated Features Section - Blended with Hero */}
       <section
         id="features"
         className="relative bg-[#2E2723] px-6 lg:px-8"
@@ -518,7 +959,9 @@ export default function App() {
           marginTop: "-70px",
           paddingTop: "110px",
           paddingBottom: "90px",
-          zIndex: 20          
+          zIndex: 20,
+          // borderTopLeftRadius: '34px',
+          // borderTopRightRadius: '34px'
         }}
       >
         <div className="max-w-7xl mx-auto">
@@ -529,7 +972,28 @@ export default function App() {
             transition={{ duration: 1 }}
             className="text-center mb-24"
           >
-            <div className="w-20 mx-auto mb-10" />            
+            <div className="w-20 mx-auto mb-10" />
+            {/* <h2
+              className="mb-8 text-[#F5F1EA]"
+              style={{
+                fontFamily: "'Parkinsans', sans-serif",
+                fontSize: "48px",
+                fontWeight: 500,
+              }}
+            >
+              Our Expertise
+            </h2>
+            <p
+              className="text-[#b8b1a8] max-w-3xl mx-auto font-light"
+              style={{
+                fontFamily: "'Parkinsans', sans-serif",
+                fontSize: "16px",
+                lineHeight: 1.8,
+              }}
+            >
+              Bringing visionary design to life through innovation, elegance,
+              and precision
+            </p> */}
             <div
               className="text-center
                 mb-16
@@ -540,7 +1004,18 @@ export default function App() {
                 md:-mt-10
                 lg:-mt-14"
             >
-              {/* Luxury Label */}              
+              {/* Luxury Label */}
+              {/* <div
+                className="mb-5 uppercase tracking-[0.35em] text-[#C9A36A]"
+                style={{
+                  fontFamily: "'Parkinsans',sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                Expertise
+              </div> */}
+              /
               <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-2 h-2 bg-[#f3bb27] rotate-45" />
                 <span
@@ -2214,6 +2689,76 @@ export default function App() {
         </div>
       </section>
 
+      {/* CTA Section - Dark Background */}
+      {/* <section className="relative py-48 px-8 overflow-hidden bg-[#332C26]">
+        <div className="absolute inset-0 z-0 opacity-30">
+          <img
+            src="https://images.unsplash.com/photo-1640357897497-599b4fc84f51?w=1920"
+            alt="Luxury Interior"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#332C26] via-[#332C26]/90 to-[#332C26]" />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="relative z-10 max-w-5xl mx-auto text-center"
+        >
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ea7a12] to-[#f3bb27] mx-auto mb-12" />
+            <h2
+              className="mb-10 text-[#F5F1EA]"
+              style={{
+                fontFamily: "'Parkinsans', sans-serif",
+                fontSize: "72px",
+                fontWeight: 600,
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Let's Transform Your Vision Into Reality
+            </h2>
+            <p
+              className="text-[#b8b1a8] mb-16 max-w-3xl mx-auto font-light"
+              style={{
+                fontFamily: "'Parkinsans', sans-serif",
+                fontSize: "16px",
+                lineHeight: 1.8,
+              }}
+            >
+              Begin your journey to extraordinary spaces with our expert team
+            </p>
+          <div className="flex flex-wrap gap-8 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-14 py-5 bg-gradient-to-r from-[#ea7a12] to-[#f3bb27] text-white rounded-sm hover:shadow-2xl hover:shadow-[#f3bb27]/40 transition-all text-lg"
+              style={{
+                fontFamily: "'Parkinsans', sans-serif",
+                fontWeight: 500,
+                letterSpacing: "0.01em",
+              }}
+            >
+              Start Your Project
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-14 py-5 border-2 border-[#F5F1EA] text-[#F5F1EA] rounded-sm hover:bg-[#F5F1EA] hover:text-[#332C26] transition-all text-lg"
+              style={{
+                fontFamily: "'Parkinsans', sans-serif",
+                fontWeight: 500,
+                letterSpacing: "0.01em",
+              }}
+            >
+              Schedule a Call
+            </motion.button>
+          </div>
+        </motion.div>
+      </section> */}
+
       {/* Footer - Dark Background */}
       <footer id="contact" className="relative overflow-hidden bg-[#2A211C] text-[#F5F1EA] pt-28">
 
@@ -2866,7 +3411,13 @@ export default function App() {
       "
       >
 
-     
+      {/* <span
+      className="
+      hover:text-[#D4A24C]
+      cursor-pointer
+      transition-all
+      "
+      > */}
       <a
          href="?page=privacy-policy"
         className="
@@ -2989,5 +3540,117 @@ function LuxuryFeatureCard({
         </motion.div>
       </div>
     </motion.div>
-  );  
+  );
+
+  //      return (
+  //   <motion.div
+  //     ref={ref}
+  //     initial={{ opacity: 0, y: 50 }}
+  //     animate={isInView ? { opacity: 1, y: 0 } : {}}
+  //     transition={{
+  //       duration: 0.9,
+  //       delay: index * 0.15,
+  //       ease: [0.22, 1, 0.36, 1]
+  //     }}
+  //     whileHover={{
+  //       y: -4,
+  //       transition: {
+  //         duration: 0.5,
+  //         ease: [0.22, 1, 0.36, 1]
+  //       }
+  //     }}
+  //     className="group relative text-center"
+  //   >
+  //     {/* Soft Glow */}
+  //     <div className="absolute inset-0 rounded-[28px] bg-gradient-to-b from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl" />
+
+  //     {/* Decorative Top Accent */}
+  //     <motion.div
+  //       initial={{ width: 0 }}
+  //       animate={isInView ? { width: 56 } : {}}
+  //       transition={{ duration: 1, delay: 0.3 + index * 0.15 }}
+  //       className="h-[3px] bg-gradient-to-r from-[#ea7a12] to-[#f3bb27] mx-auto mb-10 rounded-full"
+  //     />
+
+  //     {/* Luxury Rotating Icon */}
+  //     <div className="relative flex justify-center items-center mb-12 h-[190px]">
+
+  //       {/* Rotating Decorative Border */}
+  //       <motion.div
+  //         animate={{ rotate: 360 }}
+  //         transition={{
+  //           duration: 28,
+  //           ease: "linear",
+  //           repeat: Infinity
+  //         }}
+  //         className="absolute w-[170px] h-[170px]"
+  //         style={{
+  //           background: '#D8D2C8',
+  //           maskImage: `url(${iconBorder})`,
+  //           WebkitMaskImage: `url(${iconBorder})`,
+  //           maskSize: 'contain',
+  //           WebkitMaskSize: 'contain',
+  //           maskRepeat: 'no-repeat',
+  //           WebkitMaskRepeat: 'no-repeat',
+  //           maskPosition: 'center',
+  //           WebkitMaskPosition: 'center',
+  //           opacity: 0.55
+  //         }}
+  //       />
+
+  //       {/* Inner Glow */}
+  //       <div className="absolute w-[90px] h-[90px] rounded-full bg-white blur-2xl opacity-70" />
+
+  //       {/* Icon Circle */}
+  //       <motion.div
+  //         whileHover={{
+  //           scale: 1.04
+  //         }}
+  //         transition={{
+  //           duration: 0.45,
+  //           ease: [0.22, 1, 0.36, 1]
+  //         }}
+  //         className="relative z-10 w-[82px] h-[82px] rounded-full bg-[#F8F6F1] border border-[#DDD7CF] flex items-center justify-center shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
+  //       >
+  //         <div className="text-[#4A453E] scale-110">
+  //           {feature.icon}
+  //         </div>
+  //       </motion.div>
+
+  //     </div>
+
+  //     {/* Title */}
+  //     <h3
+  //       className="mb-5 text-[#2D2926]"
+  //       style={{
+  //         fontFamily: "'Parkinsans', sans-serif",
+  //         fontSize: '36px',
+  //         fontWeight: 600,
+  //         lineHeight: 1.15,
+  //         letterSpacing: '-0.03em'
+  //       }}
+  //     >
+  //       {feature.title}
+  //     </h3>
+
+  //     {/* Description */}
+  //     <p
+  //       className="max-w-[320px] mx-auto text-[#6F6A64]"
+  //       style={{
+  //         fontFamily: "'Parkinsans', sans-serif",
+  //         fontSize: '18px',
+  //         lineHeight: 1.8,
+  //         fontWeight: 400
+  //       }}
+  //     >
+  //       {feature.description}
+  //     </p>
+
+  //     {/* Elegant Hover Line */}
+  //     <div className="mt-10 flex justify-center">
+  //       <div className="h-[1px] w-0 bg-[#ea7a12] group-hover:w-24 transition-all duration-700" />
+  //     </div>
+
+  //   </motion.div>
+  // );
 }
