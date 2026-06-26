@@ -1,4 +1,4 @@
-import { Shield,  Phone, Mail} from "lucide-react";
+import { Shield, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import logo from "../assets/images/3GDecoLogo-2.png";
@@ -11,76 +11,74 @@ export default function PrivacyPolicy() {
     {
       title: "How We Use Information",
       content:
-        "We use your information to respond to inquiries and provide our services efficiently."
+        "We use your information to respond to inquiries and provide our services efficiently.",
     },
     {
       title: "Data Security",
       content:
-        "Your information is protected using modern security practices and safeguards."
+        "Your information is protected using modern security practices and safeguards.",
     },
     {
       title: "Cookies Policy",
       content:
-        "Cookies help improve browsing experience and website performance."
+        "Cookies help improve browsing experience and website performance.",
     },
     {
       title: "Third Party Sharing",
       content:
-        "We never sell personal information and only share when necessary."
+        "We never sell personal information and only share when necessary.",
     },
     {
       title: "Your Rights",
       content:
-        "You may request access, modification, or deletion of your information."
+        "You may request access, modification, or deletion of your information.",
     },
     {
       title: "Contact Us",
-      content:
-        "Feel free to contact us regarding any privacy concerns."
-    }
+      content: "Feel free to contact us regarding any privacy concerns.",
+    },
   ];
   return (
     <>
       <div className="bg-[#F5F1EA] overflow-x-hidden">
-
         <motion.nav
-              initial={{ y: -100 }}
-              animate={{ y: 0 }}
-              className="relative z-50 bg-[#F5F1EA]"
-              style={{ height: "92px" }}
-            >
-              <div className="max-w-[1720px] mx-auto h-full px-8">
-                <div className="flex items-center justify-between h-full">
-                  {/* LEFT LOGO */}
-                  <div className="flex items-center min-w-[240px]">
-                    <motion.img
-                      whileHover={{ scale: 1.03 }}
-                      src={logo}
-                      alt="3G Decorative Group"
-                      className="w-auto object-contain"
-                      style={{
-                        height: "105px",
-                        marginTop: "8px",
-                        marginLeft: "-72px",
-                        filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.16))",
-                      }}
-                    />
-                  </div>
-      
-                  {/* CENTER MENU */}
-                  <div className="hidden lg:flex items-center gap-16">
-                    {[
-                      { id: "home", label: "HOME" },
-                      { id: "features", label: "EXPERTISE" },
-                      { id: "about", label: "ABOUT" },
-                      { id: "services", label: "SERVICES" },
-                      { id: "projects", label: "PROJECTS" },
-                      { id: "contact", label: "CONTACT" },
-                    ].map((item) => (
-                      <a
-                        key={item.id}
-                        href={`#${item.id}`}
-                        className="
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          className="relative z-50 bg-[#F5F1EA]"
+          style={{ height: "92px" }}
+        >
+          <div className="max-w-[1720px] mx-auto h-full px-8">
+            <div className="flex items-center justify-between h-full">
+              {/* LEFT LOGO */}
+              <div className="flex items-center min-w-[240px]">
+                <motion.img
+                  whileHover={{ scale: 1.03 }}
+                  src={logo}
+                  alt="3G Decorative Group"
+                  className="w-auto object-contain"
+                  style={{
+                    height: "105px",
+                    marginTop: "8px",
+                    marginLeft: "-72px",
+                    filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.16))",
+                  }}
+                />
+              </div>
+
+              {/* CENTER MENU */}
+              <div className="hidden lg:flex items-center gap-16">
+                {[
+                  { id: "home", label: "HOME" },
+                  { id: "features", label: "EXPERTISE" },
+                  { id: "about", label: "ABOUT" },
+                  { id: "services", label: "SERVICES" },
+                  { id: "projects", label: "PROJECTS" },
+                  { id: "contact", label: "CONTACT" },
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`./#${item.id}`}
+                    className="
                           relative
                           uppercase
                           transition-all
@@ -88,74 +86,74 @@ export default function PrivacyPolicy() {
                           text-[#332C26]
                           hover:text-[#ea7a12]
                           "
-                        style={{
-                          fontFamily: "'Parkinsans', sans-serif",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          letterSpacing: "0.14em",
-                        }}
-                      >
-                        {item.label}
-      
-                        {/* Animated underline */}                     
-                      </a>
-                    ))}
-                  </div>
-      
-                  {/* RIGHT CTA */}
-                  <div className="flex justify-end min-w-[260px]">
-                    <motion.button
-                      whileHover={{
-                        scale: 1.04,
-                        y: -2,
-                      }}
-                      whileTap={{
-                        scale: 0.98,
-                      }}
-                      className="relative overflow-hidden px-10 py-4 rounded-full"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, #f4b223 0%, #ea7a12 100%)",
-                        boxShadow: "0 16px 40px rgba(234,122,18,0.24)",
-                      }}
-                    >
-                      {/* Shine Animation */}
-                      <motion.div
-                        animate={{
-                          x: ["-150%", "250%"],
-                        }}
-                        transition={{
-                          duration: 2.8,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                        className="absolute inset-0 w-1/3 bg-white/20 skew-x-[-20deg]"
-                      />
-      
-                      {/* Glow */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-50" />
-      
-                      <span
-                        className="relative z-10 text-white"
-                        style={{
-                          fontFamily: "'Parkinsans', sans-serif",
-                          fontSize: "15px",
-                          fontWeight: 600,
-                          letterSpacing: "0.04em",
-                        }}
-                      >
-                        Book Consultation
-                      </span>
-                    </motion.button>
-                  </div>
-                </div>
+                    style={{
+                      fontFamily: "'Parkinsans', sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      letterSpacing: "0.14em",
+                    }}
+                  >
+                    {item.label}
+
+                    {/* Animated underline */}
+                  </a>
+                ))}
               </div>
+
+              {/* RIGHT CTA */}
+              <div className="flex justify-end min-w-[260px]">
+                <motion.button
+                  whileHover={{
+                    scale: 1.04,
+                    y: -2,
+                  }}
+                  whileTap={{
+                    scale: 0.98,
+                  }}
+                  className="relative overflow-hidden px-10 py-4 rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #f4b223 0%, #ea7a12 100%)",
+                    boxShadow: "0 16px 40px rgba(234,122,18,0.24)",
+                  }}
+                >
+                  {/* Shine Animation */}
+                  <motion.div
+                    animate={{
+                      x: ["-150%", "250%"],
+                    }}
+                    transition={{
+                      duration: 2.8,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute inset-0 w-1/3 bg-white/20 skew-x-[-20deg]"
+                  />
+
+                  {/* Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-50" />
+
+                  <span
+                    className="relative z-10 text-white"
+                    style={{
+                      fontFamily: "'Parkinsans', sans-serif",
+                      fontSize: "15px",
+                      fontWeight: 600,
+                      letterSpacing: "0.04em",
+                    }}
+                  >
+                    Book Consultation
+                  </span>
+                </motion.button>
+              </div>
+            </div>
+          </div>
         </motion.nav>
-        
+
         {/* HERO SECTION */}
 
-       <section
-            className="
+        <section
+          className="
             relative
             overflow-hidden
             bg-[#1F1713]            
@@ -164,7 +162,7 @@ export default function PrivacyPolicy() {
             md:min-h-[700px]
             lg:h-[650px]
             "
-            >       
+        >
           {/* Background */}
           <img
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920"
@@ -175,18 +173,18 @@ export default function PrivacyPolicy() {
           {/* Main Dark Overlay */}
           <div className="absolute inset-0 bg-black/60" />
 
-            {/* Left Dark Gradient */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(24,15,10,.95) 0%, rgba(24,15,10,.88) 25%, rgba(24,15,10,.45) 60%, rgba(24,15,10,.15) 100%)"
-              }}
-            />
+          {/* Left Dark Gradient */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(24,15,10,.95) 0%, rgba(24,15,10,.88) 25%, rgba(24,15,10,.45) 60%, rgba(24,15,10,.15) 100%)",
+            }}
+          />
 
-            {/* Top Band */}
-              <div
-                className="
+          {/* Top Band */}
+          <div
+            className="
                   absolute
                   top-[90px]
                   lg:top-[125px]
@@ -196,14 +194,13 @@ export default function PrivacyPolicy() {
                   w-[90%]
                   lg:w-[720px]
                 "
-                style={{
-                  background: "rgba(0,0,0,.18)",
-                  backdropFilter: "blur(12px)"
-                }}
-              />   
-                    
+            style={{
+              background: "rgba(0,0,0,.18)",
+              backdropFilter: "blur(12px)",
+            }}
+          />
 
-           <div
+          <div
             className="
               relative z-30
               max-w-[1280px]
@@ -223,10 +220,10 @@ export default function PrivacyPolicy() {
               lg:gap-24
             "
           >
-              {/* LEFT CONTENT */}
-                  
-              <div
-                className="
+            {/* LEFT CONTENT */}
+
+            <div
+              className="
                   order-2
                   lg:order-2
                   flex flex-col
@@ -236,11 +233,10 @@ export default function PrivacyPolicy() {
                   mt-8
                   lg:mt-0
                   "
-              >
-
-                {/* Label */}
-                <div
-                  className="
+            >
+              {/* Label */}
+              <div
+                className="
                     flex
                     items-center
                     justify-center
@@ -248,24 +244,24 @@ export default function PrivacyPolicy() {
                     gap-3
                     mb-8
                   "
+              >
+                <div className="w-2 h-2 rounded-full bg-[#D89A2D]" />
+
+                <span
+                  className="uppercase text-[#D89A2D]"
+                  style={{
+                    fontFamily: "Parkinsans",
+                    letterSpacing: ".38em",
+                    fontSize: "14px",
+                  }}
                 >
-                  <div className="w-2 h-2 rounded-full bg-[#D89A2D]" />
+                  Privacy Policy
+                </span>
+              </div>
 
-                  <span
-                    className="uppercase text-[#D89A2D]"
-                    style={{
-                      fontFamily: "Parkinsans",
-                      letterSpacing: ".38em",
-                      fontSize: "14px"
-                    }}
-                  >
-                    Privacy Policy
-                  </span>
-                </div>
-
-                {/* Heading */}
-                <h1
-                  className="
+              {/* Heading */}
+              <h1
+                className="
                     text-white
                     leading-[1.08]
 
@@ -274,20 +270,20 @@ export default function PrivacyPolicy() {
                     md:text-[70px]
                     lg:text-[82px]
                   "
-                  style={{
-                    fontFamily: "Parkinsans",
-                    fontWeight: 500,
-                    letterSpacing: "-0.03em"
-                  }}
-                >
-                  Your Privacy
-                  <br />
-                  Matters to Us
-                </h1>
+                style={{
+                  fontFamily: "Parkinsans",
+                  fontWeight: 500,
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                Your Privacy
+                <br />
+                Matters to Us
+              </h1>
 
-                {/* Description */}
-                <p
-                  className="
+              {/* Description */}
+              <p
+                className="
                     text-[#F0ECE6]
                     mt-10
 
@@ -300,18 +296,16 @@ export default function PrivacyPolicy() {
                     mx-auto
                     lg:mx-0
                   "
-                  style={{
-                    fontFamily: "Parkinsans"
-                  }}
-                >
-                  We are committed to protecting your personal information
-                  and your right to privacy.
-                </p>
+                style={{
+                  fontFamily: "Parkinsans",
+                }}
+              >
+                We are committed to protecting your personal information and
+                your right to privacy.
+              </p>
+            </div>
 
-              </div>
-            
             {/* RIGHT SHIELD */}
-            
 
             <motion.div
               className="
@@ -343,15 +337,14 @@ export default function PrivacyPolicy() {
               lg:h-[250px]
               "
               animate={{
-              y:[0,-12,0]
+                y: [0, -12, 0],
               }}
               transition={{
-              duration:4,
-              repeat:Infinity,
-              ease:"easeInOut"
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
-              >
-
+            >
               {/* BIG INNER GOLD GLOW */}
               <div
                 className="absolute inset-0 rounded-full"
@@ -359,7 +352,7 @@ export default function PrivacyPolicy() {
                   background:
                     "radial-gradient(circle, rgba(212,162,76,.55) 0%, rgba(212,162,76,.25) 40%, transparent 75%)",
                   filter: "blur(80px)",
-                  animation: "pulseGlow 4s ease-in-out infinite"
+                  animation: "pulseGlow 4s ease-in-out infinite",
                 }}
               />
 
@@ -456,9 +449,7 @@ export default function PrivacyPolicy() {
                   z-20
                 "
               >
-
                 <defs>
-
                   <filter
                     id="shieldGlow"
                     x="-50%"
@@ -474,11 +465,10 @@ export default function PrivacyPolicy() {
                   </filter>
 
                   <radialGradient id="innerGlow">
-                    <stop offset="0%" stopColor="#D89A2D" stopOpacity=".65"/>
-                    <stop offset="50%" stopColor="#D89A2D" stopOpacity=".25"/>
-                    <stop offset="100%" stopColor="#D89A2D" stopOpacity="0"/>
+                    <stop offset="0%" stopColor="#D89A2D" stopOpacity=".65" />
+                    <stop offset="50%" stopColor="#D89A2D" stopOpacity=".25" />
+                    <stop offset="100%" stopColor="#D89A2D" stopOpacity="0" />
                   </radialGradient>
-
                 </defs>
 
                 {/* INNER GLOW */}
@@ -523,7 +513,6 @@ export default function PrivacyPolicy() {
                   strokeWidth="5"
                   fill="none"
                 />
-
               </svg>
 
               {/* LOCK IMAGE */}
@@ -536,47 +525,41 @@ export default function PrivacyPolicy() {
                   sm:w-[100%]
                   "
                 style={{
-                  top:"18%",
-                  left:"50%",
-                  transform:"translateX(-50%)",
-                  filter:"drop-shadow(0 0 20px rgba(255,255,255,.35))"
-                  }}
+                  top: "18%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  filter: "drop-shadow(0 0 20px rgba(255,255,255,.35))",
+                }}
               />
-
-          
             </motion.div>
-           
-
           </div>
+        </section>
 
-       </section>
+        {/* Main Section Layout + Left Card + Content Area */}
 
-       {/* Main Section Layout + Left Card + Content Area */}
-
-       <section className="bg-[#F8F5F0] py-20">
-
-        <div className="w-full max-w-[1400px] mx-auto px-8">
-
-          <div className="grid
+        <section className="bg-[#F8F5F0] py-20">
+          <div className="w-full max-w-[1400px] mx-auto px-8">
+            <div
+              className="grid
               grid-cols-1
               lg:grid-cols-[280px_1fr]
               gap-10
-              lg:gap-14">
-
-            {/* LEFT CARD */}
-            <div>
-
-              <div className="
+              lg:gap-14"
+            >
+              {/* LEFT CARD */}
+              <div>
+                <div
+                  className="
               bg-white
               rounded-[24px]
               shadow-[0_10px_40px_rgba(0,0,0,.08)]
-              overflow-hidden">
-
-                {accordionItems.map((item, index) => ( 
-                  <div
-                    key={index}
-                    onClick={() => setOpenIndex(index)}
-                    className={`
+              overflow-hidden"
+                >
+                  {accordionItems.map((item, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setOpenIndex(index)}
+                      className={`
                       flex items-center justify-between
                       px-7 py-5
                       border-b border-[#ECE6DD]
@@ -584,130 +567,114 @@ export default function PrivacyPolicy() {
                       transition-all
                       hover:bg-[#FCFAF7]
 
-                      ${openIndex === index
-                        ? "text-[#D89A2D] bg-[#FCFAF7]"
-                        : ""
+                      ${
+                        openIndex === index ? "text-[#D89A2D] bg-[#FCFAF7]" : ""
                       }
                     `}
-                  >
-
-                    <div className="flex items-center gap-4">
-
-                      <div className="
+                    >
+                      <div className="flex items-center gap-4">
+                        <div
+                          className="
                       w-8 h-8
                       rounded-full
                       bg-[#F8F5F0]
-                      flex items-center justify-center">
+                      flex items-center justify-center"
+                        >
+                          <span className="text-sm">✓</span>
+                        </div>
 
-                        <span className="text-sm">✓</span>
-
+                        <span
+                          className="font-medium text-[15px]"
+                          style={{
+                            fontFamily: "Parkinsans",
+                          }}
+                        >
+                          {item.title}
+                        </span>
                       </div>
 
                       <span
-                      className="font-medium text-[15px]"
-                      style={{
-                        fontFamily:"Parkinsans"
-                      }}
+                        className={`transition duration-300 ${
+                          openIndex === index ? "rotate-90 text-[#D89A2D]" : ""
+                        }`}
                       >
-                        {item.title}
+                        ›
                       </span>
-
                     </div>
-
-                    <span
-                      className={`transition duration-300 ${
-                        openIndex === index
-                          ? "rotate-90 text-[#D89A2D]"
-                          : ""
-                      }`}>
-                      ›
-                    </span>
-
-                  </div>
-                ))}
-
+                  ))}
+                </div>
               </div>
 
-            </div>
-
-
-
-            {/* RIGHT CONTENT */}
-            <div>
-
-              <div className="
+              {/* RIGHT CONTENT */}
+              <div>
+                <div
+                  className="
                 grid
                 grid-cols-1
                 xl:grid-cols-[1fr_400px]
                 gap-10
-                items-center">
-
-                {/* TEXT */}
-                <div>
-
-                  <h2
-                  className="
+                items-center"
+                >
+                  {/* TEXT */}
+                  <div>
+                    <h2
+                      className="
                     text-[34px]
                     md:text-[42px]
                     xl:text-[52px]
                     mb-6"
-                  style={{
-                    fontFamily:"Parkinsans",
-                    fontWeight:500
-                  }}
-                  >
-                    Information We Collect
-                  </h2>
+                      style={{
+                        fontFamily: "Parkinsans",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Information We Collect
+                    </h2>
 
-                  <p
-                  className="text-[#666]"
-                  style={{
-                    fontFamily:"Parkinsans"
-                  }}
-                  >
-                    We collect information you provide directly to us when you:
-                  </p>
+                    <p
+                      className="text-[#666]"
+                      style={{
+                        fontFamily: "Parkinsans",
+                      }}
+                    >
+                      We collect information you provide directly to us when
+                      you:
+                    </p>
 
+                    <div className="mt-10 space-y-7">
+                      <div className="flex gap-4 items-center">
+                        <span className="text-[#D89A2D] text-xl">✓</span>
+                        <span>Fill out forms on our website</span>
+                      </div>
 
-                  <div className="mt-10 space-y-7">
+                      <div className="flex gap-4 items-center">
+                        <span className="text-[#D89A2D] text-xl">✓</span>
+                        <span>Request a consultation or quote</span>
+                      </div>
 
-                    <div className="flex gap-4 items-center">
-                      <span className="text-[#D89A2D] text-xl">✓</span>
-                      <span>Fill out forms on our website</span>
+                      <div className="flex gap-4 items-center">
+                        <span className="text-[#D89A2D] text-xl">✓</span>
+                        <span>Subscribe to our newsletter</span>
+                      </div>
+
+                      <div className="flex gap-4 items-center">
+                        <span className="text-[#D89A2D] text-xl">✓</span>
+                        <span>Communicate with our team</span>
+                      </div>
                     </div>
-
-                    <div className="flex gap-4 items-center">
-                      <span className="text-[#D89A2D] text-xl">✓</span>
-                      <span>Request a consultation or quote</span>
-                    </div>
-
-                    <div className="flex gap-4 items-center">
-                      <span className="text-[#D89A2D] text-xl">✓</span>
-                      <span>Subscribe to our newsletter</span>
-                    </div>
-
-                    <div className="flex gap-4 items-center">
-                      <span className="text-[#D89A2D] text-xl">✓</span>
-                      <span>Communicate with our team</span>
-                    </div>
-
                   </div>
 
-                </div>
-
-
-
-                {/* IMAGE */}
-                <div>
-
-                  <div className="
+                  {/* IMAGE */}
+                  <div>
+                    <div
+                      className="
                   overflow-hidden
                   rounded-[30px]
-                  shadow-[0_15px_50px_rgba(0,0,0,.1)]">
-
-                    <img
-                      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
-                      className="
+                  shadow-[0_15px_50px_rgba(0,0,0,.1)]"
+                    >
+                      <img
+                        src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
+                        className="
                       w-full
                       h-[260px]
                       md:h-[320px]
@@ -715,38 +682,32 @@ export default function PrivacyPolicy() {
                       object-cover
                       rounded-[30px]
                       "
-                      alt=""
-                    />
-
+                        alt=""
+                      />
+                    </div>
                   </div>
-
                 </div>
 
-              </div>
+                {/* Accordion Section */}
 
-              {/* Accordion Section */}
-
-            <div className="mt-12 space-y-4">
-
-              {accordionItems.map((item, index) => (
-
-                <div
-                  key={index}
-                  className="
+                <div className="mt-12 space-y-4">
+                  {accordionItems.map((item, index) => (
+                    <div
+                      key={index}
+                      className="
                   bg-white
                   rounded-[20px]
                   border border-[#ECE6DD]
                   overflow-hidden
                   shadow-sm
                   "
-                >
-
-                  {/* Header */}
-                  <button
-                    onClick={() =>
-                      setOpenIndex(openIndex === index ? -1 : index)
-                    }
-                    className="
+                    >
+                      {/* Header */}
+                      <button
+                        onClick={() =>
+                          setOpenIndex(openIndex === index ? -1 : index)
+                        }
+                        className="
                     w-full
                     px-6 md:px-8
                     py-5
@@ -756,52 +717,48 @@ export default function PrivacyPolicy() {
                     hover:bg-[#FCFAF7]
                     transition-all
                     "
-                  >
-
-                    <div className="flex items-center gap-5">
-
-                      <div
-                        className="
+                      >
+                        <div className="flex items-center gap-5">
+                          <div
+                            className="
                         w-10 h-10
                         rounded-full
                         border border-[#DDD]
                         flex items-center justify-center
                         "
-                      >
-                        ✓
-                      </div>
+                          >
+                            ✓
+                          </div>
 
-                      <span
-                        className="text-[16px] md:text-[17px]"
-                        style={{
-                          fontFamily: "Parkinsans",
-                          fontWeight: 500
-                        }}
-                      >
-                        {item.title}
-                      </span>
+                          <span
+                            className="text-[16px] md:text-[17px]"
+                            style={{
+                              fontFamily: "Parkinsans",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {item.title}
+                          </span>
+                        </div>
 
-                    </div>
+                        <svg
+                          className={`transition duration-300 ${
+                            openIndex === index ? "rotate-180" : ""
+                          }`}
+                          width="20"
+                          height="20"
+                          fill="none"
+                          stroke="#555"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </button>
 
-                    <svg
-                      className={`transition duration-300 ${
-                        openIndex === index ? "rotate-180" : ""
-                      }`}
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="#555"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-
-                  </button>
-
-                  {/* Content */}
-                  <div
-                    className={`
+                      {/* Content */}
+                      <div
+                        className={`
                       overflow-hidden
                       transition-all
                       duration-300
@@ -811,39 +768,29 @@ export default function PrivacyPolicy() {
                           : "max-h-0"
                       }
                     `}
-                  >
-
-                    <p
-                      className="text-[#666] leading-8"
-                      style={{
-                        fontFamily: "Parkinsans"
-                      }}
-                    >
-                      {item.content}
-                    </p>
-
-                  </div>
-
+                      >
+                        <p
+                          className="text-[#666] leading-8"
+                          style={{
+                            fontFamily: "Parkinsans",
+                          }}
+                        >
+                          {item.content}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-
-              ))}
-
+              </div>
             </div>
-
-            </div>
-
           </div>
+        </section>
 
-        </div>
+        {/* Footer */}
 
-       </section>
-
-       {/* Footer */}
-
-      <section className="bg-[#F8F5F0] pb-12 px-4 md:px-6">
-
-        <div
-          className="
+        <section className="bg-[#F8F5F0] pb-12 px-4 md:px-6">
+          <div
+            className="
             w-full
             max-w-[1400px]
             mx-auto
@@ -853,23 +800,21 @@ export default function PrivacyPolicy() {
             border border-[#2D2118]
             shadow-[0_20px_60px_rgba(0,0,0,.15)]
           "
-          style={{
+            style={{
               background:
-                "linear-gradient(90deg,#0f0b08 0%,#1a120d 50%,#0f0b08 100%)"
+                "linear-gradient(90deg,#0f0b08 0%,#1a120d 50%,#0f0b08 100%)",
             }}
-        >
-
-          <div            
-            className="
+          >
+            <div
+              className="
               grid
               grid-cols-1
               md:grid-cols-2
               xl:grid-cols-[2fr_1fr_1fr]"
-          >
-
-            {/* Left */}
-            <div
-              className="
+            >
+              {/* Left */}
+              <div
+                className="
                 flex
                 items-center
                 gap-5
@@ -881,54 +826,48 @@ export default function PrivacyPolicy() {
                 lg:border-r
                 border-[#2B211A]
               "
-            >
-              <div
-                className="
+              >
+                <div
+                  className="
                   w-16 h-16
                   rounded-full
                   border border-[#D89A2D]/30
                   flex items-center justify-center
                 "
-              >
-                <Shield
-                  size={28}
-                  color="#D89A2D"
-                />
-              </div>
+                >
+                  <Shield size={28} color="#D89A2D" />
+                </div>
 
-              <div>
-
-                <h3
-                  className="
+                <div>
+                  <h3
+                    className="
                     text-white
                     text-[22px]
                     md:text-[26px]
                     leading-tight
                   "
-                  style={{
-                    fontFamily: "Parkinsans",
-                    fontWeight: 500
-                  }}
-                >
-                  Have any privacy related questions?
-                </h3>
+                    style={{
+                      fontFamily: "Parkinsans",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Have any privacy related questions?
+                  </h3>
 
-                <p
-                  className="text-[#D0C8BF] mt-2"
-                  style={{
-                    fontFamily: "Parkinsans"
-                  }}
-                >
-                  We're here to help you.
-                </p>
-
+                  <p
+                    className="text-[#D0C8BF] mt-2"
+                    style={{
+                      fontFamily: "Parkinsans",
+                    }}
+                  >
+                    We're here to help you.
+                  </p>
+                </div>
               </div>
-            </div>
 
-
-            {/* Phone */}
-            <div
-              className="
+              {/* Phone */}
+              <div
+                className="
                 flex
                 items-center
                 gap-4
@@ -939,65 +878,46 @@ export default function PrivacyPolicy() {
                 lg:border-r
                 border-[#2B211A]
               "
-            >
-
-              <Phone
-                size={22}
-                color="#D89A2D"
-              />
-
-              <span
-                className="text-[#F5F1EA]"
-                style={{
-                  fontFamily: "Parkinsans"
-                }}
               >
-                +91 83209 02030
-              </span>
+                <Phone size={22} color="#D89A2D" />
 
-            </div>
+                <span
+                  className="text-[#F5F1EA]"
+                  style={{
+                    fontFamily: "Parkinsans",
+                  }}
+                >
+                  +91 83209 02030
+                </span>
+              </div>
 
-
-            {/* Email */}
-            <div
-              className="
+              {/* Email */}
+              <div
+                className="
                 flex
                 items-center
                 gap-4
                 px-8
                 py-8
               "
-            >
+              >
+                <Mail size={22} color="#D89A2D" />
 
-              <Mail
-                size={22}
-                color="#D89A2D"
-              />
-
-              <span
-                className="
+                <span
+                  className="
                   text-[#F5F1EA]
                   break-all
                 "
-                style={{
-                  fontFamily: "Parkinsans"
-                }}
-              >
-                info@3gdecodesign.com
-              </span>
-
+                  style={{
+                    fontFamily: "Parkinsans",
+                  }}
+                >
+                  info@3gdecodesign.com
+                </span>
+              </div>
             </div>
-
           </div>
-
-        </div>
-
-      </section>
-
-              
-
-
-
+        </section>
       </div>
     </>
   );

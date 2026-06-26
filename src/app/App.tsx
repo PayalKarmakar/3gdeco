@@ -10,14 +10,15 @@ import about2 from "../assets/images/about2.jpg";
 import about3 from "../assets/images/about3.jpg";
 import about4 from "../assets/images/about4.jpg";
 import HeroSection from "./components/HeroSection";
+import Services from "../pages/Services";
 
 import {
-  ArrowRight, 
+  ArrowRight,
   Star,
-  Award, 
+  Award,
   Users,
   Building2,
-  Sparkles,  
+  Sparkles,
   Phone,
   Mail,
   MapPin,
@@ -51,6 +52,28 @@ export default function App() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const sliderRef = useRef<any>(null);
   const testimonialSliderRef = useRef<any>(null);
+  const [showServices, setShowServices] = useState(false);
+
+  /** Just for returning to Privacy Policy */
+  const page = new URLSearchParams(window.location.search).get("page");
+  // console.log("Current page =", page);
+
+  if (page === "privacy-policy") {
+    return <PrivacyPolicy />;
+  }
+
+  /** End Just for returning to Privacy Policy */
+  if (page === "services") {
+    return (
+      <Services
+        onNavigate={(page) => {
+          if (page === "home") {
+            window.location.href = "/";
+          }
+        }}
+      />
+    );
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -160,7 +183,7 @@ export default function App() {
     arrows: false,
     pauseOnHover: false,
     beforeChange: (current: number, next: number) => setCurrentSlide(next),
-  };  
+  };
 
   const services = [
     {
@@ -337,58 +360,44 @@ export default function App() {
   const aboutImages = [about1, about2, about3, about4];
 
   const LaurelIcon = () => (
-  <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
-  <path d="M22 45C13 39 10 27 14 16" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M42 45C51 39 54 27 50 16" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M18 21L23 24" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M17 28L22 30" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M46 21L41 24" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M47 28L42 30" stroke="#C79A3B" strokeWidth="1.6"/>
+    <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+      <path d="M22 45C13 39 10 27 14 16" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M42 45C51 39 54 27 50 16" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M18 21L23 24" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M17 28L22 30" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M46 21L41 24" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M47 28L42 30" stroke="#C79A3B" strokeWidth="1.6" />
 
-  <circle cx="32" cy="24" r="8" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M28 33H36" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M30 33V42" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M34 33V42" stroke="#C79A3B" strokeWidth="1.6"/>
-  </svg>
-  )
+      <circle cx="32" cy="24" r="8" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M28 33H36" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M30 33V42" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M34 33V42" stroke="#C79A3B" strokeWidth="1.6" />
+    </svg>
+  );
 
   const PillarIcon = () => (
-  <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+    <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+      <path d="M18 15H46" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M20 21H44" stroke="#C79A3B" strokeWidth="1.6" />
 
-  <path d="M18 15H46" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M20 21H44" stroke="#C79A3B" strokeWidth="1.6"/>
+      <path d="M24 21V45" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M30 21V45" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M34 21V45" stroke="#C79A3B" strokeWidth="1.6" />
+      <path d="M40 21V45" stroke="#C79A3B" strokeWidth="1.6" />
 
-  <path d="M24 21V45" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M30 21V45" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M34 21V45" stroke="#C79A3B" strokeWidth="1.6"/>
-  <path d="M40 21V45" stroke="#C79A3B" strokeWidth="1.6"/>
-
-  <path d="M16 48H48" stroke="#C79A3B" strokeWidth="1.6"/>
-
-  </svg>
-  )
+      <path d="M16 48H48" stroke="#C79A3B" strokeWidth="1.6" />
+    </svg>
+  );
 
   const LuxuryStar = () => (
-  <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
-
-  <path
-  d="M32 10L37 24L52 25L40 35L44 50L32 42L20 50L24 35L12 25L27 24L32 10Z"
-  stroke="#C79A3B"
-  strokeWidth="1.6"
-  />
-
-  </svg>
-  )
-  
-
-  /** Just for returning to Privacy Policy */
-  const page = new URLSearchParams(window.location.search).get("page");
-
-  if (page === "privacy-policy") {
-    return <PrivacyPolicy />;
-  }
-
-  /** End Just for returning to Privacy Policy */
+    <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
+      <path
+        d="M32 10L37 24L52 25L40 35L44 50L32 42L20 50L24 35L12 25L27 24L32 10Z"
+        stroke="#C79A3B"
+        strokeWidth="1.6"
+      />
+    </svg>
+  );
 
   return (
     <div className="size-full bg-[#F5F1EA] text-[#332C26] overflow-x-hidden">
@@ -417,6 +426,7 @@ export default function App() {
             </div>
 
             {/* CENTER MENU */}
+
             <div className="hidden lg:flex items-center gap-16">
               {[
                 { id: "home", label: "HOME" },
@@ -425,36 +435,52 @@ export default function App() {
                 { id: "services", label: "SERVICES" },
                 { id: "projects", label: "PROJECTS" },
                 { id: "contact", label: "CONTACT" },
-              ].map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className={`relative uppercase transition-all duration-500 ${
-                    activeNav === item.id
-                      ? "text-[#ea7a12]"
-                      : "text-[#332C26] hover:text-[#ea7a12]"
-                  }`}
-                  style={{
-                    fontFamily: "'Parkinsans', sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    letterSpacing: "0.14em",
-                  }}
-                >
-                  {item.label}
-
-                  {/* Animated underline */}
-                  <motion.span
-                    initial={false}
-                    animate={{
-                      width: activeNav === item.id ? "34px" : "0px",
-                      opacity: activeNav === item.id ? 1 : 0,
+              ].map((item) =>
+                // temporary just for redirection for services page
+                item.id === "services" ? (
+                  <a
+                    href="?page=services"
+                    className="relative uppercase transition-all duration-500 text-[#332C26] hover:text-[#ea7a12]"
+                    style={{
+                      fontFamily: "'Parkinsans', sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      letterSpacing: "0.14em",
                     }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute left-1/2 -translate-x-1/2 -bottom-3 h-[2px] bg-gradient-to-r from-[#ea7a12] to-[#f3bb27] rounded-full"
-                  />
-                </a>
-              ))}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className={`relative uppercase transition-all duration-500 ${
+                      activeNav === item.id
+                        ? "text-[#ea7a12]"
+                        : "text-[#332C26] hover:text-[#ea7a12]"
+                    }`}
+                    style={{
+                      fontFamily: "'Parkinsans', sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      letterSpacing: "0.14em",
+                    }}
+                  >
+                    {item.label}
+
+                    {/* Animated underline */}
+                    <motion.span
+                      initial={false}
+                      animate={{
+                        width: activeNav === item.id ? "34px" : "0px",
+                        opacity: activeNav === item.id ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.4 }}
+                      className="absolute left-1/2 -translate-x-1/2 -bottom-3 h-[2px] bg-gradient-to-r from-[#ea7a12] to-[#f3bb27] rounded-full"
+                    />
+                  </a>
+                ),
+              )}
             </div>
 
             {/* RIGHT CTA */}
@@ -507,8 +533,8 @@ export default function App() {
         </div>
       </motion.nav>
 
-      {/* Hero Section - Premium Editorial Framing */}      
-      <HeroSection/>
+      {/* Hero Section - Premium Editorial Framing */}
+      <HeroSection />
 
       {/* Animated Expertise Section - Blended with Hero */}
       <section
@@ -518,7 +544,7 @@ export default function App() {
           marginTop: "-70px",
           paddingTop: "110px",
           paddingBottom: "90px",
-          zIndex: 20          
+          zIndex: 20,
         }}
       >
         <div className="max-w-7xl mx-auto">
@@ -529,7 +555,7 @@ export default function App() {
             transition={{ duration: 1 }}
             className="text-center mb-24"
           >
-            <div className="w-20 mx-auto mb-10" />            
+            <div className="w-20 mx-auto mb-10" />
             <div
               className="text-center
                 mb-16
@@ -540,7 +566,7 @@ export default function App() {
                 md:-mt-10
                 lg:-mt-14"
             >
-              {/* Luxury Label */}              
+              {/* Luxury Label */}
               <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-2 h-2 bg-[#f3bb27] rotate-45" />
                 <span
@@ -674,10 +700,9 @@ export default function App() {
               gap-5
               mb-7
               "
-              >
-
+            >
               <div
-              className="
+                className="
               w-[52px]
               h-[1.5px]
               bg-[#C4973B]
@@ -686,7 +711,7 @@ export default function App() {
               />
 
               <span
-              className="
+                className="
               uppercase
               tracking-[8px]
               text-[13px]
@@ -694,10 +719,9 @@ export default function App() {
               text-[#C4973B]
               "
               >
-              ABOUT US
+                ABOUT US
               </span>
-
-              </div>
+            </div>
 
             <h2
               className="
@@ -735,7 +759,7 @@ export default function App() {
               style={{
                 fontFamily: "'Parkinsans',sans-serif",
                 fontSize: "18px",
-                fontWeight: 400,                
+                fontWeight: 400,
               }}
             >
               With over 15 years of excellence in interior architecture, 3G
@@ -753,7 +777,7 @@ export default function App() {
               style={{
                 fontFamily: "'Parkinsans',sans-serif",
                 fontSize: "18px",
-                fontWeight: 400,                
+                fontWeight: 400,
               }}
             >
               Every detail is carefully crafted to create environments that
@@ -771,20 +795,20 @@ export default function App() {
             >
               {[
                 {
-              number:"250+",
-              text:"Projects Completed",
-              icon:<LaurelIcon/>
-              },
-              {
-              number:"15+",
-              text:"Years Experience",
-              icon:<PillarIcon/>
-              },
-              {
-              number:"98%",
-              text:"Client Satisfaction",
-              icon:<LuxuryStar/>
-              },
+                  number: "250+",
+                  text: "Projects Completed",
+                  icon: <LaurelIcon />,
+                },
+                {
+                  number: "15+",
+                  text: "Years Experience",
+                  icon: <PillarIcon />,
+                },
+                {
+                  number: "98%",
+                  text: "Client Satisfaction",
+                  icon: <LuxuryStar />,
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -810,9 +834,9 @@ export default function App() {
                     mb-5 scale-[1.15]
                     text-[#C4973B]
                     "
-                    >
+                  >
                     {item.icon}
-                    </div>
+                  </div>
 
                   <div
                     className="
@@ -835,7 +859,7 @@ export default function App() {
                       text-sm
                       text-[#6D645C]
                       "
-                      style={{
+                    style={{
                       fontFamily: "'Parkinsans',sans-serif",
                     }}
                   >
@@ -844,10 +868,7 @@ export default function App() {
                 </motion.div>
               ))}
             </div>
-
-
-            
-          </motion.div>          
+          </motion.div>
 
           {/* RIGHT IMAGE GRID */}
           <motion.div
@@ -920,7 +941,8 @@ export default function App() {
                     shadow-[0_18px_45px_rgba(0,0,0,.18)]
                     group
                     cursor-pointer
-                    ">
+                    "
+                >
                   <img
                     src={item.img}
                     className="
@@ -971,99 +993,85 @@ export default function App() {
                 z-40
                 "
                 style={{
-                left:"30%",
-                top:"32%",
-                transform:"translate(-50%,-50%)"
+                  left: "30%",
+                  top: "32%",
+                  transform: "translate(-50%,-50%)",
                 }}
-
                 initial={{
-                opacity:0,
-                scale:.85
+                  opacity: 0,
+                  scale: 0.85,
                 }}
-
                 animate={{
-                opacity:1,
-                y:[0,-7,0],
-                rotate:[0,1,-1,0],
-                scale:[1,1.03,1]
+                  opacity: 1,
+                  y: [0, -7, 0],
+                  rotate: [0, 1, -1, 0],
+                  scale: [1, 1.03, 1],
                 }}
-
                 transition={{
-                opacity:{duration:1},
+                  opacity: { duration: 1 },
 
-                y:{
-                duration:4,
-                repeat:Infinity,
-                ease:"easeInOut"
-                },
+                  y: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
 
-                rotate:{
-                duration:8,
-                repeat:Infinity,
-                ease:"easeInOut"
-                },
+                  rotate: {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
 
-                scale:{
-                duration:4,
-                repeat:Infinity,
-                ease:"easeInOut"
-                }
+                  scale: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
                 }}
-                              >
-
-              <motion.div
-              animate={{
-              scale:[1,1.18,1],
-              opacity:[.25,.45,.25]
-              }}
-              transition={{
-              duration:3,
-              repeat:Infinity
-              }}
-              className="
+              >
+                <motion.div
+                  animate={{
+                    scale: [1, 1.18, 1],
+                    opacity: [0.25, 0.45, 0.25],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                  className="
               absolute
               inset-0
               rounded-full
               blur-xl
               "
-              style={{
-              background:
-              "radial-gradient(circle,#D7A24B66 0%,transparent 70%)"
-              }}
-              />
+                  style={{
+                    background:
+                      "radial-gradient(circle,#D7A24B66 0%,transparent 70%)",
+                  }}
+                />
 
-             <motion.img
-              src={badge3G}
-              alt="3G Luxury Badge"
-
-              className="
+                <motion.img
+                  src={badge3G}
+                  alt="3G Luxury Badge"
+                  className="
               relative
               w-[170px]
               md:w-[190px]
               drop-shadow-[0_0_35px_rgba(215,162,75,.45)]
               "
-
-              animate={{
-              rotate:[0,1,-1,0],
-              scale:[1,1.03,1]
-              }}
-
-              whileHover={{
-              scale:1.06
-              }}
-
-              transition={{
-              duration:.4
-              }}        
-              />
-
+                  animate={{
+                    rotate: [0, 1, -1, 0],
+                    scale: [1, 1.03, 1],
+                  }}
+                  whileHover={{
+                    scale: 1.06,
+                  }}
+                  transition={{
+                    duration: 0.4,
+                  }}
+                />
               </motion.div>
-            </div>           
-
-            
-
-
-                 
+            </div>
           </motion.div>
         </div>
       </section>
@@ -1268,32 +1276,29 @@ export default function App() {
 
       {/* Projects Gallery - Light Background */}
       <section
-          id="projects"
-          className="py-28 px-8 bg-[#F5F1EA] overflow-hidden"
-        >
-          <div className="max-w-7xl mx-auto">
+        id="projects"
+        className="py-28 px-8 bg-[#F5F1EA] overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* HEADER */}
 
-            {/* HEADER */}         
-
-            <motion.div
-                initial={{ opacity:0,y:30 }}
-                whileInView={{ opacity:1,y:0 }}
-                viewport={{ once:true }}
-                transition={{ duration:.8 }}
-                className="text-center mb-14"
-                >
-
-                <div
-                className="
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-14"
+          >
+            <div
+              className="
                 flex
                 items-center
                 justify-center
                 gap-3
                 mb-5
                 "
-                >
-
-                <div
+            >
+              <div
                 className="
                 w-14
                 h-[1px]
@@ -1301,9 +1306,9 @@ export default function App() {
                 from-transparent
                 to-[#D9A441]
                 "
-                />
+              />
 
-                <div
+              <div
                 className="
                 uppercase
                 tracking-[0.45em]
@@ -1312,13 +1317,13 @@ export default function App() {
                 text-[#C89A38]
                 "
                 style={{
-                fontFamily:"'Parkinsans',sans-serif"
+                  fontFamily: "'Parkinsans',sans-serif",
                 }}
-                >
+              >
                 PORTFOLIO
-                </div>
+              </div>
 
-                <div
+              <div
                 className="
                 w-14
                 h-[1px]
@@ -1326,39 +1331,31 @@ export default function App() {
                 from-transparent
                 to-[#D9A441]
                 "
-                />
+              />
+            </div>
 
-                </div>
-
-                <h2
-
-                className="
+            <h2
+              className="
                 mb-5
                 text-[#332C26]
                 "
+              style={{
+                fontFamily: "'Parkinsans',sans-serif",
 
-                style={{
+                fontSize: "64px",
 
-                fontFamily:"'Parkinsans',sans-serif",
+                fontWeight: 500,
 
-                fontSize:"64px",
+                lineHeight: "1.05",
 
-                fontWeight:500,
+                letterSpacing: "-.03em",
+              }}
+            >
+              Featured Projects
+            </h2>
 
-                lineHeight:"1.05",
-
-                letterSpacing:"-.03em"
-
-                }}
-
-                >
-
-                Featured Projects
-
-                </h2>
-
-                <div
-                className="
+            <div
+              className="
                 w-36
                 h-[1px]
                 bg-gradient-to-r
@@ -1369,9 +1366,8 @@ export default function App() {
                 mb-6
                 relative
                 "
-                >
-
-                <div
+            >
+              <div
                 className="
                 absolute
                 left-1/2
@@ -1383,42 +1379,33 @@ export default function App() {
                 -translate-x-1/2
                 -translate-y-1/2
                 "
-                />
+              />
+            </div>
 
-                </div>
-
-                <p
-
-                className="
+            <p
+              className="
                 text-[#6A635D]
                 max-w-xl
                 mx-auto
                 font-light
                 "
+              style={{
+                fontFamily: "'Parkinsans',sans-serif",
 
-                style={{
+                fontSize: "17px",
 
-                fontFamily:"'Parkinsans',sans-serif",
+                lineHeight: "1.9",
+              }}
+            >
+              A curated selection of our most prestigious interior design
+              projects
+            </p>
+          </motion.div>
 
-                fontSize:"17px",
+          {/* GRID */}
 
-                lineHeight:"1.9"
-
-                }}
-
-                >
-
-                A curated selection of our most prestigious interior design projects
-
-                </p>
-
-                </motion.div>
-
-
-            {/* GRID */}
-
-            <div
-              className="
+          <div
+            className="
               grid
               grid-cols-1
               lg:grid-cols-12
@@ -1426,14 +1413,13 @@ export default function App() {
               auto-rows-[180px]
               items-stretch
               "
-              >
+          >
+            {/* LARGE CARD */}
 
-              {/* LARGE CARD */}
-
-              <motion.div
-                whileHover={{ scale:1.02 }}
-                transition={{ duration:.5 }}
-                className="
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="
                 lg:col-span-7
                 lg:row-span-2
                 relative
@@ -1442,11 +1428,10 @@ export default function App() {
                 group
                 shadow-[0_25px_60px_rgba(0,0,0,.08)]
                 "
-              >
-
-                <img
-                  src={projects[0]?.image}
-                  className="
+            >
+              <img
+                src={projects[0]?.image}
+                className="
                   w-full
                   h-full
                   object-cover
@@ -1454,20 +1439,20 @@ export default function App() {
                   group-hover:scale-[1.08]
                   group-hover:rotate-[1deg]
                   "
-                />
+              />
 
-                <div
-                  className="
+              <div
+                className="
                   absolute inset-0
                   bg-gradient-to-r
                   from-black/88
                   via-black/40
                   to-transparent
                   "
-                />
+              />
 
-                <div
-                  className="
+              <div
+                className="
                   absolute
                   left-10
                   right-10
@@ -1479,75 +1464,70 @@ export default function App() {
                   justify-end
                  
                   "
-                >
-
-                  <p
-                    className="
+              >
+                <p
+                  className="
                     text-[#C79A4A]
                     text-5xl
                     mb-3
                     "
-                    style={{
-                      fontFamily:"'Parkinsans',sans-serif"
-                    }}
-                  >
-                    01
-                  </p>
+                  style={{
+                    fontFamily: "'Parkinsans',sans-serif",
+                  }}
+                >
+                  01
+                </p>
 
-                  <h3
-                    className="
+                <h3
+                  className="
                     text-white
                     text-5xl
                     leading-tight
                     mb-5
                     "
-                    style={{
-                      fontFamily:"'Parkinsans',sans-serif"
-                    }}
-                  >
-                    {projects[0]?.title}
-                  </h3>
+                  style={{
+                    fontFamily: "'Parkinsans',sans-serif",
+                  }}
+                >
+                  {projects[0]?.title}
+                </h3>
 
-                  <p
-                    className="
+                <p
+                  className="
                     text-[#D9C9B7]
                     mb-8
                     "
-                  >
-                    {projects[0]?.category}
-                  </p>
+                >
+                  {projects[0]?.category}
+                </p>
 
-                  <button
-                    className="
+                <button
+                  className="
                     text-[#C79A4A]
                     tracking-[0.15em]
                     uppercase
                     text-sm
                     "
-                  >
-                    View Project →
-                  </button>
+                >
+                  View Project →
+                </button>
+              </div>
+            </motion.div>
 
-                </div>
+            {/* SMALL CARDS */}
 
-              </motion.div>
-
-
-              {/* SMALL CARDS */}
-
-              {projects.slice(1,5).map((project,index)=>(
-
+            {projects.slice(1, 5).map((project, index) => (
               <motion.div
                 key={index}
                 whileHover={{
-                  y:-12,
-                  scale:1.02
-                  }}
-                  transition={{
-                  duration:.55,
-                  ease:[0.22,1,0.36,1]
-                  }}
-                  className={`
+                  y: -12,
+                  scale: 1.02,
+                }}
+                transition={{
+                  duration: 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className={`
                   relative
                   overflow-hidden
                   rounded-[30px]
@@ -1556,14 +1536,13 @@ export default function App() {
                   h-full
                   min-w-0
 
-                  ${index===0 ? "lg:col-span-5" : ""}
-                  ${index===1 ? "lg:col-span-5" : ""}
+                  ${index === 0 ? "lg:col-span-5" : ""}
+                  ${index === 1 ? "lg:col-span-5" : ""}
 
-                  ${index===2 ? "lg:col-span-6" : ""}
-                  ${index===3 ? "lg:col-span-6" : ""}
+                  ${index === 2 ? "lg:col-span-6" : ""}
+                  ${index === 3 ? "lg:col-span-6" : ""}
                   `}
               >
-
                 <img
                   src={project.image}
                   className="
@@ -1579,7 +1558,7 @@ export default function App() {
                     group-hover:scale-[1.12]
                     group-hover:rotate-[1.5deg]
                     "
-                                    />
+                />
 
                 <div
                   className="
@@ -1598,7 +1577,6 @@ export default function App() {
                   bottom-8
                   "
                 >
-
                   <p
                     className="
                     text-[#C79A4A]
@@ -1606,10 +1584,10 @@ export default function App() {
                     mb-2
                     "
                     style={{
-                      fontFamily:"'Parkinsans',sans-serif"
+                      fontFamily: "'Parkinsans',sans-serif",
                     }}
                   >
-                    0{index+2}
+                    0{index + 2}
                   </p>
 
                   <h4
@@ -1620,7 +1598,7 @@ export default function App() {
                     mb-2
                     "
                     style={{
-                      fontFamily:"'Parkinsans',sans-serif"
+                      fontFamily: "'Parkinsans',sans-serif",
                     }}
                   >
                     {project.title}
@@ -1634,20 +1612,16 @@ export default function App() {
                   >
                     {project.category}
                   </p>
-
                 </div>
 
                 <motion.div
-
                   animate={{
-                    rotate:[0,90,0]
+                    rotate: [0, 90, 0],
                   }}
-
                   transition={{
-                    duration:4,
-                    repeat:Infinity
+                    duration: 4,
+                    repeat: Infinity,
                   }}
-
                   className="
                   absolute
                   right-6
@@ -1667,25 +1641,20 @@ export default function App() {
                 >
                   +
                 </motion.div>
-
               </motion.div>
+            ))}
+          </div>
 
-              ))}
-
-            </div>
-
-
-            <motion.div
-              whileHover={{ x:8 }}
-              className="
+          <motion.div
+            whileHover={{ x: 8 }}
+            className="
               flex
               justify-center
               mt-16
               "
-            >
-
-              <button
-                className="
+          >
+            <button
+              className="
                 text-[#2B2118]
                 tracking-[0.25em]
                 uppercase
@@ -1694,30 +1663,25 @@ export default function App() {
                 items-center
                 gap-4
                 "
-              >
-                Explore All Projects
-
-                <span
-                  className="
+            >
+              Explore All Projects
+              <span
+                className="
                   text-[#C79A4A]
                   text-xl
                   "
-                >
-                  →
-                </span>
-
-              </button>
-
-            </motion.div>
-
-          </div>
+              >
+                →
+              </span>
+            </button>
+          </motion.div>
+        </div>
       </section>
-
 
       {/* Process Timeline - Dark Background */}
       <section className="pt-24 pb-40 px-8 bg-[#332C26]">
         <div className="max-w-7xl mx-auto">
-           <div className="text-center mb-20">
+          <div className="text-center mb-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1727,20 +1691,19 @@ export default function App() {
               <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-2 h-2 bg-[#f3bb27] rotate-45" />
                 <span
-                className="
+                  className="
                 text-[#f3bb27]
                 tracking-[0.22em]
                 text-xs
                 font-medium
                 uppercase
                 "
-                style={{
-                fontFamily:"'Parkinsans',sans-serif"
-                }}
+                  style={{
+                    fontFamily: "'Parkinsans',sans-serif",
+                  }}
                 >
-                OUR PROCESS
+                  OUR PROCESS
                 </span>
-
               </div>
               <h2
                 className="text-[#f3bb27]"
@@ -1752,7 +1715,7 @@ export default function App() {
                   letterSpacing: "0.02em",
                 }}
               >
-                 How We Work
+                How We Work
               </h2>
               <p
                 className="
@@ -1761,19 +1724,15 @@ export default function App() {
                 text-[#BEB5AC]
                 "
                 style={{
-                fontFamily:"'Parkinsans',sans-serif",
-                fontSize:"17px",
-                lineHeight:"30px"
+                  fontFamily: "'Parkinsans',sans-serif",
+                  fontSize: "17px",
+                  lineHeight: "30px",
                 }}
-            >
-
-            A seamless journey from concept to completion
-
-            </p>
+              >
+                A seamless journey from concept to completion
+              </p>
             </motion.div>
           </div>
-
-         
 
           <div className="relative">
             <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#f3bb27]/30 to-transparent hidden lg:block" />
@@ -1834,42 +1793,32 @@ export default function App() {
       </section>
 
       {/* Testimonials - Decoria Luxury Circular Design */}
-      <section
-        id="clients"
-        className="pt-20 pb-32 px-8 bg-[#F5F1EA]"
-      >
+      <section id="clients" className="pt-20 pb-32 px-8 bg-[#F5F1EA]">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Title Section - Centered */}
-         
+
           <motion.div
-
             initial={{
-            opacity:0,
-            y:30
+              opacity: 0,
+              y: 30,
             }}
-
             whileInView={{
-            opacity:1,
-            y:0
+              opacity: 1,
+              y: 0,
             }}
-
             viewport={{
-            once:true
+              once: true,
             }}
-
             transition={{
-            duration:.8
+              duration: 0.8,
             }}
-
             className="
             text-center
             mb-20
             "
-
-            >
-
+          >
             <div
-            className="
+              className="
             flex
             items-center
             justify-center
@@ -1877,86 +1826,66 @@ export default function App() {
             mb-5
             "
             >
-
-            <div
-            className="
+              <div
+                className="
             w-14
             h-[1px]
             bg-gradient-to-r
             from-transparent
             to-[#D9A441]
             "
-            />
+              />
 
-            <div
-
-            className="
+              <div
+                className="
             uppercase
             tracking-[0.45em]
             text-[12px]
             font-medium
             text-[#C89A38]
             "
+                style={{
+                  fontFamily: "'Parkinsans',sans-serif",
+                }}
+              >
+                TESTIMONIALS
+              </div>
 
-            style={{
-            fontFamily:"'Parkinsans',sans-serif"
-            }}
-
-            >
-
-            TESTIMONIALS
-
-            </div>
-
-            <div
-            className="
+              <div
+                className="
             w-14
             h-[1px]
             bg-gradient-to-l
             from-transparent
             to-[#D9A441]
             "
-            />
-
+              />
             </div>
 
             <h2
-
-            className="
+              className="
             text-[#332C26]
             mb-5
             "
+              style={{
+                fontFamily: "'Parkinsans',sans-serif",
 
-            style={{
+                fontSize: "56px",
 
-            fontFamily:"'Parkinsans',sans-serif",
+                fontWeight: 500,
 
-            fontSize:"56px",
+                lineHeight: "1.08",
 
-            fontWeight:500,
-
-            lineHeight:"1.08",
-
-            letterSpacing:"-.03em"
-
-            }}
-
+                letterSpacing: "-.03em",
+              }}
             >
-
-            Genuine Feedback From
-
-            <br/>
-
-            <span className="text-[#C28B2D]">
-
-            Our Loyal Customers
-
-            </span>
-
+              Genuine Feedback From
+              <br />
+              <span className="text-[#C28B2D]">Our Loyal Customers</span>
             </h2>
 
             <div
-            className="
+              className="
             w-36
             h-[1px]
             bg-gradient-to-r
@@ -1969,9 +1898,8 @@ export default function App() {
             relative
             "
             >
-
-            <div
-            className="
+              <div
+                className="
             absolute
             left-1/2
             top-1/2
@@ -1986,37 +1914,27 @@ export default function App() {
             -translate-x-1/2
             -translate-y-1/2
             "
-            />
-
+              />
             </div>
 
             <p
-
-            className="
+              className="
             text-[#6B645E]
             max-w-xl
             mx-auto
             "
+              style={{
+                fontFamily: "'Parkinsans',sans-serif",
 
-            style={{
+                fontSize: "16px",
 
-            fontFamily:"'Parkinsans',sans-serif",
-
-            fontSize:"16px",
-
-            lineHeight:"1.9"
-
-            }}
-
+                lineHeight: "1.9",
+              }}
             >
-
-            Trusted by homeowners and businesses for
-            creating spaces defined by elegance,
-            comfort, and timeless luxury.
-
+              Trusted by homeowners and businesses for creating spaces defined
+              by elegance, comfort, and timeless luxury.
             </p>
-
-            </motion.div>
+          </motion.div>
 
           {/* Testimonial Carousel with Pill-Shaped Card */}
           <div className="relative max-w-5xl mx-auto mt-6">
@@ -2215,8 +2133,10 @@ export default function App() {
       </section>
 
       {/* Footer - Dark Background */}
-      <footer id="contact" className="relative overflow-hidden bg-[#2A211C] text-[#F5F1EA] pt-28">
-
+      <footer
+        id="contact"
+        className="relative overflow-hidden bg-[#2A211C] text-[#F5F1EA] pt-28"
+      >
         {/* Luxury background */}
         <div className="absolute inset-0 opacity-10">
           <img
@@ -2229,55 +2149,47 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#2A211C]/90 to-[#17110D]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-8">
-
           {/* Top Footer */}
           <div className="grid lg:grid-cols-4 gap-16 pb-20 border-b border-[#D4A24C]/20">
-
             {/* Logo */}
             <div>
-
               <motion.img
                 src={logo}
                 alt="3G Decorative Group"
                 className="w-44 lg:w-52 mb-8"
                 animate={{
-                  filter:[
-                  "drop-shadow(0 0 0px #D4A24C)",
-                  "drop-shadow(0 0 12px #D4A24C)",
-                  "drop-shadow(0 0 0px #D4A24C)"
-                  ]
+                  filter: [
+                    "drop-shadow(0 0 0px #D4A24C)",
+                    "drop-shadow(0 0 12px #D4A24C)",
+                    "drop-shadow(0 0 0px #D4A24C)",
+                  ],
                 }}
                 transition={{
-                  duration:4,
-                  repeat:Infinity
+                  duration: 4,
+                  repeat: Infinity,
                 }}
               />
 
               <p
                 className="text-[#D7D0C7] leading-8 text-sm"
                 style={{
-                  fontFamily:"'Parkinsans',sans-serif"
+                  fontFamily: "'Parkinsans',sans-serif",
                 }}
               >
-                Crafting luxurious interiors that blend
-                elegance, innovation and timeless
-                sophistication.
+                Crafting luxurious interiors that blend elegance, innovation and
+                timeless sophistication.
               </p>
 
               <div className="flex gap-4 mt-8">
-
-                {[Instagram,Facebook,Linkedin].map(
-                (Icon,index)=>(
-
-                <motion.div
-                  key={index}
-                  whileHover={{
-                   y:-6,
-                    scale:1.12,
-                    boxShadow:
-                    "0 0 20px rgba(212,162,76,.35)"
+                {[Instagram, Facebook, Linkedin].map((Icon, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.12,
+                      boxShadow: "0 0 20px rgba(212,162,76,.35)",
                     }}
-                  className="
+                    className="
                   size-12
                   rounded-full
                   border
@@ -2290,23 +2202,18 @@ export default function App() {
                   hover:text-black
                   transition-all
                   "
-                >
-                  <Icon size={18}/>
-                </motion.div>
-
+                  >
+                    <Icon size={18} />
+                  </motion.div>
                 ))}
-
               </div>
-
             </div>
-
 
             {/* Quick Links */}
 
             <div>
-
               <h3
-              className="
+                className="
               text-[#D4A24C]
               mb-8
               tracking-[0.2em]
@@ -2321,13 +2228,12 @@ export default function App() {
                 "Services",
                 "Projects",
                 "Our Process",
-                "Testimonials"
-                ].map((item)=>(
-
+                "Testimonials",
+              ].map((item) => (
                 <motion.div
-                key={item}
-                whileHover={{x:8}}
-                className="
+                  key={item}
+                  whileHover={{ x: 8 }}
+                  className="
                 group
                 flex
                 justify-between
@@ -2338,60 +2244,56 @@ export default function App() {
                 border-[#D4A24C]/10
                 pb-3
                 "
-                style={{ fontFamily:"'Parkinsans',sans-serif",fontSize:"15px"}}
+                  style={{
+                    fontFamily: "'Parkinsans',sans-serif",
+                    fontSize: "15px",
+                  }}
                 >
-
-                <span
-                className="
+                  <span
+                    className="
                 group-hover:text-[#D4A24C]
                 transition-all
                 "
-                >
-                {item}
-                </span>
+                  >
+                    {item}
+                  </span>
 
-                <ChevronRight
-                size={16}
-                className="
+                  <ChevronRight
+                    size={16}
+                    className="
                 text-[#D4A24C]
                 group-hover:translate-x-1
                 transition-all
                 "
-                />
-
+                  />
                 </motion.div>
-
-                ))}
-
+              ))}
             </div>
-
 
             {/* Services */}
 
             <div>
-
-            <h3
-            className="
+              <h3
+                className="
             text-[#D4A24C]
             mb-8
             tracking-[0.2em]
             "
-            >
-            SERVICES
-            </h3>
+              >
+                SERVICES
+              </h3>
 
-           {[
-            "Interior Design",
-            "Architecture",
-            "Space Planning",
-            "Furniture Design",
-            "Luxury Living"
-            ].map((item)=>(
-
-            <motion.div
-            key={item}
-            whileHover={{x:8}}
-            className="
+              {[
+                "Interior Design",
+                "Architecture",
+                "Space Planning",
+                "Furniture Design",
+                "Luxury Living",
+              ].map((item) => (
+                <motion.div
+                  key={item}
+                  whileHover={{ x: 8 }}
+                  className="
             group
             flex
             justify-between
@@ -2402,105 +2304,96 @@ export default function App() {
             pb-3
             cursor-pointer
             "
-            style={{ fontFamily:"'Parkinsans',sans-serif",fontSize:"15px"}}
-            >
-
-            <span
-            className="
+                  style={{
+                    fontFamily: "'Parkinsans',sans-serif",
+                    fontSize: "15px",
+                  }}
+                >
+                  <span
+                    className="
             group-hover:text-[#D4A24C]
             transition-all
             "
-            >
-            {item}
-            </span>
+                  >
+                    {item}
+                  </span>
 
-            <ChevronRight
-            size={16}
-            className="
+                  <ChevronRight
+                    size={16}
+                    className="
             text-[#D4A24C]
             group-hover:translate-x-1
             transition-all
             "
-            />
-
-            </motion.div>
-
-            ))}
-
+                  />
+                </motion.div>
+              ))}
             </div>
-
 
             {/* Contact */}
 
             <div>
-
-            <h3
-            className="
+              <h3
+                className="
             text-[#D4A24C]
             mb-8
             tracking-[0.2em]
             "
-            >
-            CONTACT
-            </h3>
+              >
+                CONTACT
+              </h3>
 
-           <div className="space-y-6" style={{ fontFamily:"'Parkinsans',sans-serif",fontSize:"15px"}}>
+              <div
+                className="space-y-6"
+                style={{
+                  fontFamily: "'Parkinsans',sans-serif",
+                  fontSize: "15px",
+                }}
+              >
+                {[
+                  {
+                    icon: MapPin,
+                    title: "Kolkata, West Bengal",
+                    sub: "India",
+                  },
 
-              {[
-              {
-              icon:MapPin,
-              title:"Kolkata, West Bengal",
-              sub:"India"
-              },
+                  {
+                    icon: Phone,
+                    title: "+91 XXXXX XXXXX",
+                  },
 
-              {
-              icon:Phone,
-              title:"+91 XXXXX XXXXX"
-              },
+                  {
+                    icon: Mail,
+                    title: "info@3gdecorativegroup.com",
+                  },
 
-              {
-              icon:Mail,
-              title:"info@3gdecorativegroup.com"
-              },
+                  {
+                    icon: Clock,
+                    title: "Mon - Sat : 10 AM - 7 PM",
+                  },
+                ].map((item, index) => {
+                  const Icon = item.icon;
 
-              {
-              icon:Clock,
-              title:"Mon - Sat : 10 AM - 7 PM"
-              }
-
-              ].map((item,index)=>{
-
-              const Icon=item.icon;
-
-              return(
-
-              <motion.div
-
-              key={index}
-
-              whileHover={{
-              x:10
-              }}
-
-              className="
+                  return (
+                    <motion.div
+                      key={index}
+                      whileHover={{
+                        x: 10,
+                      }}
+                      className="
               group
               flex
               items-center
               gap-5
               cursor-pointer
               "
-
-              >
-
-              <motion.div
-
-              whileHover={{
-              scale:1.1,
-              boxShadow:
-              "0 0 18px rgba(212,162,76,.35)"
-              }}
-
-              className="
+                    >
+                      <motion.div
+                        whileHover={{
+                          scale: 1.1,
+                          boxShadow: "0 0 18px rgba(212,162,76,.35)",
+                        }}
+                        className="
               w-14
               h-14
               min-w-[56px]
@@ -2514,60 +2407,42 @@ export default function App() {
               transition-all
               duration-500
               "
+                      >
+                        <Icon size={20} />
+                      </motion.div>
 
-              >
-
-              <Icon size={20}/>
-
-              </motion.div>
-
-              <div>
-
-              <p
-              className="
+                      <div>
+                        <p
+                          className="
               text-[#F5F1EA]
               group-hover:text-[#D4A24C]
               transition-all
               "
-              >
+                        >
+                          {item.title}
+                        </p>
 
-              {item.title}
-
-              </p>
-
-              {item.sub && (
-
-              <p
-              className="
+                        {item.sub && (
+                          <p
+                            className="
               text-sm
               text-[#B7ADA0]
               "
-              >
-
-              {item.sub}
-
-              </p>
-
-              )}
-
+                          >
+                            {item.sub}
+                          </p>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
-
-              </motion.div>
-
-              )
-
-              })}
-
-              </div>
-
             </div>
-
           </div>
-
 
           {/* Newsletter */}
 
-         <div
+          <div
             className="
             mt-20
             border
@@ -2580,10 +2455,9 @@ export default function App() {
             px-10
             py-10
             "
-            >
-
+          >
             <div
-            className="
+              className="
             flex
             flex-col
             lg:flex-row
@@ -2592,20 +2466,18 @@ export default function App() {
             gap-10
             "
             >
+              {/* LEFT */}
 
-            {/* LEFT */}
-
-            <div
-            className="
+              <div
+                className="
             flex
             items-center
             gap-8
             flex-1
             "
-            >
-
-            <div
-            className="
+              >
+                <div
+                  className="
             w-20
             h-20
             rounded-full
@@ -2617,80 +2489,61 @@ export default function App() {
             justify-center
             text-[#D4A24C]
             "
+                >
+                  <Mail size={34} />
+                </div>
 
-            >
-
-            <Mail size={34}/>
-
-            </div>
-
-
-            <div
-            className="
+                <div
+                  className="
             hidden
             lg:block
             w-[1px]
             h-20
             bg-[#D4A24C]/20
             "
-            />
+                />
 
-
-            <div>
-
-            <h3
-
-            className="
+                <div>
+                  <h3
+                    className="
             text-[#E8DED0]
             tracking-[0.08em]
             mb-3
             "
+                    style={{
+                      fontFamily: "'Parkinsans',sans-serif",
+                      fontSize: "42px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    STAY INSPIRED
+                  </h3>
 
-            style={{
-            fontFamily:"'Parkinsans',sans-serif",
-            fontSize:"42px",
-            fontWeight:500
-            }}
-
-            >
-
-            STAY INSPIRED
-
-            </h3>
-
-            <p
-
-            className="
+                  <p
+                    className="
             text-[#B9ADA0]
             max-w-md
             leading-8
             "
+                    style={{
+                      fontFamily: "'Parkinsans',sans-serif",
+                    }}
+                  >
+                    Subscribe to our newsletter and be the first to know about
+                    our latest projects and ideas.
+                  </p>
+                </div>
+              </div>
 
-            style={{
-            fontFamily:"'Parkinsans',sans-serif"
-            }}
+              {/* RIGHT */}
 
-            >
-
-            Subscribe to our newsletter and be the first to know about our latest projects and ideas.
-
-            </p>
-
-            </div>
-
-            </div>
-
-
-            {/* RIGHT */}
-
-            <div
-            className="
+              <div
+                className="
             flex-1
             "
-            >
-
-            <div
-            className="
+              >
+                <div
+                  className="
             flex
             h-[88px]
             overflow-hidden
@@ -2698,13 +2551,10 @@ export default function App() {
             border-[#D4A24C]/25
             rounded-[18px]
             "
-            >
-
-            <input
-
-            placeholder="Enter your email address"
-
-            className="
+                >
+                  <input
+                    placeholder="Enter your email address"
+                    className="
             flex-1
             bg-transparent
             outline-none
@@ -2712,21 +2562,17 @@ export default function App() {
             text-[#F5F1EA]
             placeholder:text-[#8A7E72]
             "
+                    style={{
+                      fontFamily: "'Parkinsans',sans-serif",
+                      fontSize: "18px",
+                    }}
+                  />
 
-            style={{
-            fontFamily:"'Parkinsans',sans-serif",
-            fontSize:"18px"
-            }}
-
-            />
-
-            <motion.button
-
-            whileHover={{
-            background:"#E3B75D"
-            }}
-
-            className="
+                  <motion.button
+                    whileHover={{
+                      background: "#E3B75D",
+                    }}
+                    className="
             w-[230px]
             bg-gradient-to-r
             from-[#C89A44]
@@ -2735,44 +2581,32 @@ export default function App() {
             tracking-[0.18em]
             font-medium
             "
-
-            style={{
-            fontFamily:"'Parkinsans',sans-serif"
-            }}
-
-            >
-
-            SUBSCRIBE →
-
-            </motion.button>
-
+                    style={{
+                      fontFamily: "'Parkinsans',sans-serif",
+                    }}
+                  >
+                    SUBSCRIBE →
+                  </motion.button>
+                </div>
+              </div>
             </div>
+          </div>
 
-            </div>
+          {/* Bottom */}
 
-            </div>
-
-            </div>
-
-
-
-
-      {/* Bottom */}
-
-      <div
-      className="
+          <div
+            className="
       mt-10
       pt-8
       border-t
       border-[#D4A24C]/20
       relative
       "
-      >
+          >
+            {/* Center ornament */}
 
-      {/* Center ornament */}
-
-      <div
-      className="
+            <div
+              className="
       absolute
       left-1/2
       -top-[13px]
@@ -2782,16 +2616,12 @@ export default function App() {
       text-[#D4A24C]
       text-[14px]
       "
-      >
+            >
+              ✧
+            </div>
 
-      ✧
-
-      </div>
-
-
-      <div
-
-      className="
+            <div
+              className="
       flex
       flex-col
       lg:flex-row
@@ -2800,117 +2630,86 @@ export default function App() {
       gap-4
       text-[#A89E92]
       "
-
-      style={{
-      paddingBottom:"15px",
-      fontFamily:"'Parkinsans',sans-serif",
-      fontSize:"13px",
-      }}
-
-      >
-
-      <p
-      className="
+              style={{
+                paddingBottom: "15px",
+                fontFamily: "'Parkinsans',sans-serif",
+                fontSize: "13px",
+              }}
+            >
+              <p
+                className="
       tracking-[0.03em]
       "
-      >
+              >
+                © 2025 3G Decorative Group. All Rights Reserved.
+              </p>
 
-      © 2025 3G Decorative Group.
-      All Rights Reserved.
-
-      </p>
-
-
-      <motion.div
-
-      whileHover={{
-      scale:1.02
-      }}
-
-      className="
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                }}
+                className="
       flex
       items-center
       gap-2
       "
+              >
+                <span>Designed & Developed By</span>
 
-      >
-
-      <span>
-
-      Designed & Developed By
-
-      </span>
-
-      <span
-      className="
+                <span
+                  className="
       text-[#D4A24C]
       font-medium
       hover:text-[#E3B75D]
       transition-all
       cursor-pointer
       "
-      >
+                >
+                  CodeInQ
+                </span>
+              </motion.div>
 
-      CodeInQ
-
-      </span>
-
-      </motion.div>
-
-
-      <div
-      className="
+              <div
+                className="
       flex
       items-center
       gap-5
       "
-      >
-
-     
-      <a
-         href="?page=privacy-policy"
-        className="
+              >
+                <a
+                  href="?page=privacy-policy"
+                  className="
         hover:text-[#D4A24C]
         cursor-pointer
         transition-all
         "
-        >Privacy Policy</a>
+                >
+                  Privacy Policy
+                </a>
 
-      
+                {/* </span> */}
 
-      {/* </span> */}
-
-
-      <span
-      className="
+                <span
+                  className="
       text-[#5A4B40]
       "
-      >
+                >
+                  |
+                </span>
 
-      |
-
-      </span>
-
-
-      <span
-      className="
+                <span
+                  className="
       hover:text-[#D4A24C]
       cursor-pointer
       transition-all
       "
-      >
-
-      Terms & Conditions
-
-      </span>
-
-      </div>
-
-      </div>
-
-      </div>
+                >
+                  Terms & Conditions
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-
       </footer>
     </div>
   );
@@ -2989,5 +2788,5 @@ function LuxuryFeatureCard({
         </motion.div>
       </div>
     </motion.div>
-  );  
+  );
 }
