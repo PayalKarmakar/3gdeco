@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import servicesBanner from "../assets/images/services.png";
+import Navbar from "../app/components/Navbar";
+import Footer from "../app/components/Footer";
 import {
   PenTool,
   Building2,
@@ -173,7 +175,7 @@ function Marquee() {
           <span key={i} className="inline-flex items-center gap-6 px-8">
             <span
               className="text-[#F5F1EA]/30 text-[11px] uppercase tracking-[0.28em]"
-              style={{ fontFamily: "'Mona Sans', sans-serif" }}
+              style={{ fontFamily: "'Parkinsans', sans-serif" }}
             >
               {item}
             </span>
@@ -189,190 +191,210 @@ function Marquee() {
 function Hero({ onNavigate }: { onNavigate: ServicesProps["onNavigate"] }) {
   return (
     <section
+      className="bg-[#F5F1EA] px-4 lg:px-5"
       style={{
         position: "relative",
-        overflow: "hidden",
-        background: "#0e0c0a",
-        minHeight: "100vh",
+        // overflow: "hidden",
+        // background: "#0e0c0a",
+        // height: "760px",
       }}
     >
-      {/* ── Full-bleed background image ── */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={servicesBanner}
-          alt="3G Decorative Group reception"
-          className="w-full h-full object-cover scale-110"
-          style={{ minHeight: "100vh" }}
-        />
-        {/* Left-heavy dark overlay — text readable, image glows through on right */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(100deg, rgba(10,8,6,0.97) 0%, rgba(10,8,6,0.92) 30%, rgba(10,8,6,0.70) 55%, rgba(10,8,6,0.30) 75%, rgba(10,8,6,0.15) 100%)",
-          }}
-        />
-      </div>
-
-      {/* Gold top bar */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute top-0 left-0 right-0 h-[3px] origin-left z-30"
-        style={{ background: "linear-gradient(90deg,#f3bb27,#ea7a12,#f3bb27)" }}
-      />
-
-      {/* Ambient orb — warm left */}
-      <motion.div
-        className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
-        style={{
-          background:
-            "radial-gradient(circle,rgba(243,187,39,0.06) 0%,transparent 65%)",
-          filter: "blur(80px)",
-        }}
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* ── Main text content ── */}
-      <div
-        className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 lg:px-16"
-        style={{
-          paddingTop: "clamp(100px, 18vw, 160px)",
-          paddingBottom: "80px",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        {/* Breadcrumb */}
-        <motion.div
-          initial={{ opacity: 0, x: -16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="flex items-center gap-3 mb-8"
-        >
-          <button
-            onClick={() => onNavigate("home")}
-            className="text-[#F5F1EA]/35 hover:text-[#f3bb27] text-[11px] uppercase tracking-[0.25em] transition-colors"
-            style={{ fontFamily: "'Mona Sans', sans-serif" }}
-          >
-            Home
-          </button>
-          <ChevronRight className="size-3 text-[#f3bb27]/30" />
-          <span
-            className="text-[#f3bb27] text-[11px] uppercase tracking-[0.25em]"
-            style={{ fontFamily: "'Mona Sans', sans-serif" }}
-          >
-            Services
-          </span>
-        </motion.div>
-
-        {/* Pre-label */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.38 }}
-          className="flex items-center gap-4 mb-8"
-        >
-          <div className="w-10 h-px bg-gradient-to-r from-[#f3bb27] to-[#ea7a12]" />
-          <span
-            className="text-[#f3bb27] text-[11px] uppercase tracking-[0.32em]"
-            style={{ fontFamily: "'Mona Sans', sans-serif" }}
-          >
-            Our Services
-          </span>
-        </motion.div>
-
-        {/* Main heading — matches reference: Design. Build. Deliver Excellence. */}
-        <div className="max-w-2xl mb-7">
-          {[
-            { text: "Design. Build.", gold: false },
-            { text: "Deliver ", gold: false },
-          ].map(({ text }, i) => (
-            <div key={i} style={{ overflow: "hidden" }}>
-              <motion.span
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.48 + i * 0.14,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="text-[#F5F1EA]"
-                style={{
-                  display: "block",
-                  fontFamily: "'Parkinsans', sans-serif",
-                  fontSize: "clamp(44px, 6.5vw, 80px)",
-                  fontWeight: 400,
-                  lineHeight: "100%",
-                  letterSpacing: "-0.025em",
-                }}
-              >
-                {text}
-                {/* Excellence inline on second line */}
-                {i === 1 && (
-                  <span
-                    style={{
-                      fontStyle: "italic",
-                      background: "linear-gradient(90deg,#f3bb27,#ea7a12)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
-                    Excellence.
-                  </span>
-                )}
-              </motion.span>
-            </div>
-          ))}
+      <div className="relative overflow-hidden rounded-[32px] h-[760px] w-full ">
+        {/* ── Full-bleed background image ── */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={servicesBanner}
+            alt="3G Decorative Group reception"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              filter: "brightness(1.45) contrast(1.08) saturate(1.1)",
+            }}
+          />
+          {/* Left-heavy dark overlay — text readable, image glows through on right  -- Dark Gradient */}
+          <div
+            className="absolute inset-0"
+            style={{
+              // background:
+              //   "linear-gradient(100deg, rgba(10,8,6,0.97) 0%, rgba(10,8,6,0.92) 30%, rgba(10,8,6,0.70) 55%, rgba(10,8,6,0.30) 75%, rgba(10,8,6,0.15) 100%)",
+              background: `
+                linear-gradient(
+                100deg,
+                rgba(10,8,6,0.97) 0%,
+                rgba(10,8,6,0.92) 30%,
+                rgba(8,6,5,.35) 40%,
+                rgba(10,8,6,0.70) 55%,
+                rgba(255,255,255,.08) 75%,
+                rgba(255,255,255,.20) 90%,
+                rgba(255,255,255,.28) 100%
+               
+                )
+                `,
+            }}
+          />
         </div>
 
-        {/* Body copy */}
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.82 }}
-          className="text-[#8a8078] max-w-lg mb-10"
+        {/* Gold top bar */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute top-0 left-0 right-0 h-[3px] origin-left z-30"
           style={{
-            fontFamily: "'Mona Sans', sans-serif",
-            fontSize: "15.5px",
-            lineHeight: 1.82,
+            background: "linear-gradient(90deg,#f3bb27,#ea7a12,#f3bb27)",
+          }}
+        />
+
+        {/* Ambient orb — warm left */}
+        <motion.div
+          className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+          style={{
+            background:
+              "radial-gradient(circle,rgba(243,187,39,0.06) 0%,transparent 65%)",
+            filter: "blur(80px)",
+          }}
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* ── Main text content ── */}
+        <div
+          className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 lg:px-16"
+          style={{
+            paddingTop: "clamp(100px, 18vw, 160px)",
+            paddingBottom: "80px",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
-          At 3G Deco, we offer end-to-end design and construction solutions that
-          combine creativity, functionality, and precision to create spaces that
-          truly inspire.
-        </motion.p>
+          {/* Breadcrumb */}
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="flex items-center gap-3 mb-8"
+          >
+            <button
+              onClick={() => onNavigate("home")}
+              className="text-[#F5F1EA]/35 hover:text-[#f3bb27] text-[11px] uppercase tracking-[0.25em] transition-colors"
+              style={{ fontFamily: "'Parkinsans', sans-serif" }}
+            >
+              Home
+            </button>
+            <ChevronRight className="size-3 text-[#f3bb27]/30" />
+            <span
+              className="text-[#f3bb27] text-[11px] uppercase tracking-[0.25em]"
+              style={{ fontFamily: "'Parkinsans', sans-serif" }}
+            >
+              Services
+            </span>
+          </motion.div>
 
-        {/* CTA button */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.0 }}
-        >
-          <motion.button
-            whileHover={{
-              borderColor: "rgba(243,187,39,0.9)",
-              color: "#f3bb27",
-              y: -2,
-            }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-3 px-8 py-3.5 text-[#F5F1EA] text-[12px] uppercase tracking-[0.12em] border transition-colors duration-300"
+          {/* Pre-label */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.38 }}
+            className="flex items-center gap-4 mb-8"
+          >
+            <div className="w-10 h-px bg-gradient-to-r from-[#f3bb27] to-[#ea7a12]" />
+            <span
+              className="text-[#f3bb27] text-[11px] uppercase tracking-[0.32em]"
+              style={{ fontFamily: "'Parkinsans', sans-serif" }}
+            >
+              Our Services
+            </span>
+          </motion.div>
+
+          {/* Main heading — matches reference: Design. Build. Deliver Excellence. */}
+          <div className="max-w-2xl mb-7">
+            {[
+              { text: "Design. Build.", gold: false },
+              { text: "Deliver ", gold: false },
+            ].map(({ text }, i) => (
+              <div key={i} style={{ overflow: "hidden" }}>
+                <motion.span
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.48 + i * 0.14,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="text-[#F5F1EA]"
+                  style={{
+                    display: "block",
+                    fontFamily: "'Parkinsans', sans-serif",
+                    fontSize: "clamp(44px, 6.5vw, 80px)",
+                    fontWeight: 400,
+                    lineHeight: "100%",
+                    letterSpacing: "-0.025em",
+                  }}
+                >
+                  {text}
+                  {/* Excellence inline on second line */}
+                  {i === 1 && (
+                    <span
+                      style={{
+                        fontStyle: "italic",
+                        background: "linear-gradient(90deg,#f3bb27,#ea7a12)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      Excellence.
+                    </span>
+                  )}
+                </motion.span>
+              </div>
+            ))}
+          </div>
+
+          {/* Body copy */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.82 }}
+            className="text-[#8a8078] max-w-lg mb-10"
             style={{
-              borderRadius: "100px",
-              border: "1px solid rgba(243,187,39,0.45)",
-              background: "rgba(10,8,6,0.45)",
-              backdropFilter: "blur(8px)",
-              fontFamily: "'Mona Sans', sans-serif",
-              fontWeight: 500,
+              fontFamily: "'Parkinsans', sans-serif",
+              fontSize: "15.5px",
+              lineHeight: 1.82,
             }}
           >
-            Explore Our Services <ArrowRight className="size-3.5" />
-          </motion.button>
-        </motion.div>
+            At 3G Deco, we offer end-to-end design and construction solutions
+            that combine creativity, functionality, and precision to create
+            spaces that truly inspire.
+          </motion.p>
+
+          {/* CTA button */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.0 }}
+          >
+            <motion.button
+              whileHover={{
+                borderColor: "rgba(243,187,39,0.9)",
+                color: "#f3bb27",
+                y: -2,
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center gap-3 px-8 py-3.5 text-[#F5F1EA] text-[12px] uppercase tracking-[0.12em] border transition-colors duration-300"
+              style={{
+                borderRadius: "100px",
+                border: "1px solid rgba(243,187,39,0.45)",
+                background: "rgba(10,8,6,0.45)",
+                backdropFilter: "blur(8px)",
+                fontFamily: "'Parkinsans', sans-serif",
+                fontWeight: 500,
+              }}
+            >
+              Explore Our Services <ArrowRight className="size-3.5" />
+            </motion.button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -623,20 +645,6 @@ function ServicesGrid() {
               For You
             </motion.h2>
           </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-[#6B625C] max-w-sm lg:text-right"
-            style={{
-              fontFamily: "'Mona Sans', sans-serif",
-              fontSize: "14.5px",
-              lineHeight: 1.75,
-            }}
-          >
-            Hover each card to discover how we can transform your space —
-            corporate, civil, or anything in between.
-          </motion.p>
         </div>
 
         {/* 3 × 2 Grid */}
@@ -704,7 +712,7 @@ function WhyUs() {
             <div className="w-8 h-px bg-gradient-to-r from-[#f3bb27] to-[#ea7a12]" />
             <span
               className="text-[#ea7a12] text-[11px] uppercase tracking-[0.3em]"
-              style={{ fontFamily: "'Mona Sans', sans-serif" }}
+              style={{ fontFamily: "'Parkinsans', sans-serif" }}
             >
               The 3G Advantage
             </span>
@@ -820,7 +828,7 @@ function WhyUs() {
                 </div>
                 <div
                   className="text-[#8a8078] text-[12px]"
-                  style={{ fontFamily: "'Mona Sans', sans-serif" }}
+                  style={{ fontFamily: "'Parkinsans', sans-serif" }}
                 >
                   {w.detail}
                 </div>
@@ -838,7 +846,7 @@ function WhyUs() {
               <div className="w-10 h-px bg-gradient-to-r from-[#f3bb27] to-[#ea7a12]" />
               <span
                 className="text-[#ea7a12] text-[11px] uppercase tracking-[0.3em]"
-                style={{ fontFamily: "'Mona Sans', sans-serif" }}
+                style={{ fontFamily: "'Parkinsans', sans-serif" }}
               >
                 Our Commitment
               </span>
@@ -865,7 +873,7 @@ function WhyUs() {
             <p
               className="text-[#6B625C] mb-10"
               style={{
-                fontFamily: "'Mona Sans', sans-serif",
+                fontFamily: "'Parkinsans', sans-serif",
                 fontSize: "14.5px",
                 lineHeight: 1.85,
               }}
@@ -903,7 +911,7 @@ function WhyUs() {
                   <span
                     className="text-[#6B625C] group-hover:text-[#332C26] transition-colors duration-300"
                     style={{
-                      fontFamily: "'Mona Sans', sans-serif",
+                      fontFamily: "'Parkinsans', sans-serif",
                       fontSize: "14.5px",
                       lineHeight: 1.7,
                     }}
@@ -927,7 +935,7 @@ function WhyUs() {
                 borderRadius: "100px",
                 fontSize: "13.5px",
                 letterSpacing: "0.05em",
-                fontFamily: "'Mona Sans', sans-serif",
+                fontFamily: "'Parkinsans', sans-serif",
                 background: "linear-gradient(135deg,#332C26,#1e1a17)",
                 boxShadow: "0 8px 32px rgba(51,44,38,0.22)",
               }}
@@ -1015,7 +1023,7 @@ function ProcessStrip() {
               <div className="w-10 h-px bg-gradient-to-r from-[#f3bb27] to-[#ea7a12]" />
               <span
                 className="text-[#ea7a12] text-[11px] uppercase tracking-[0.3em]"
-                style={{ fontFamily: "'Mona Sans', sans-serif" }}
+                style={{ fontFamily: "'Parkinsans', sans-serif" }}
               >
                 How We Work
               </span>
@@ -1049,7 +1057,7 @@ function ProcessStrip() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="text-[#4a4540] max-w-xs lg:text-right hidden md:block"
             style={{
-              fontFamily: "'Mona Sans', sans-serif",
+              fontFamily: "'Parkinsans', sans-serif",
               fontSize: "14px",
               lineHeight: 1.75,
             }}
@@ -1085,6 +1093,9 @@ function ProcessStrip() {
                   src={s.img}
                   alt={s.label}
                   className="w-full h-full object-cover"
+                  style={{
+                    filter: "brightness(1.35) contrast(1.1) saturate(1.15)",
+                  }}
                 />
                 <div
                   className="absolute inset-0"
@@ -1203,7 +1214,7 @@ function ProcessStrip() {
                     }}
                     transition={{ duration: 0.3 }}
                     className="text-[11px] uppercase tracking-[0.25em] mb-4"
-                    style={{ fontFamily: "'Mona Sans', sans-serif" }}
+                    style={{ fontFamily: "'Parkinsans', sans-serif" }}
                   >
                     {s.tagline}
                   </motion.p>
@@ -1213,7 +1224,7 @@ function ProcessStrip() {
                     animate={{ opacity: activeStep === i ? 1 : 0.55 }}
                     transition={{ duration: 0.35 }}
                     className="text-[#b8b0a8] text-[13px] leading-relaxed"
-                    style={{ fontFamily: "'Mona Sans', sans-serif" }}
+                    style={{ fontFamily: "'Parkinsans', sans-serif" }}
                   >
                     {s.desc}
                   </motion.p>
@@ -1249,15 +1260,20 @@ function ProcessStrip() {
 /* ─── Root ─── */
 export default function Services({ onNavigate }: ServicesProps) {
   return (
-    <div
-      className="w-full overflow-x-hidden"
-      style={{ fontFamily: "'Mona Sans', sans-serif" }}
-    >
-      <Hero onNavigate={onNavigate} />
-      <Marquee />
-      <ServicesGrid />
-      <ProcessStrip />
-      <WhyUs />
-    </div>
+    <>
+      <Navbar activeNav="services" />
+
+      <div
+        className="w-full overflow-x-hidden"
+        style={{ fontFamily: "'Parkinsans', sans-serif" }}
+      >
+        <Hero onNavigate={onNavigate} />
+        {/* <Marquee /> */}
+        <ServicesGrid />
+        <ProcessStrip />
+        <WhyUs />
+        <Footer />
+      </div>
+    </>
   );
 }

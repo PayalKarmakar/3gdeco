@@ -11,6 +11,7 @@ import about3 from "../assets/images/about3.jpg";
 import about4 from "../assets/images/about4.jpg";
 import HeroSection from "./components/HeroSection";
 import Services from "../pages/Services";
+import AboutUs from "../pages/AboutUs";
 
 import {
   ArrowRight,
@@ -43,6 +44,8 @@ import logo from "../assets/images/3GDecoLogo-2.png";
 import iconBorder from "../assets/images/icon-box-border.png";
 import badge3G from "../assets/images/3g-badge.png";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import Navbar from "../app/components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,6 +56,7 @@ export default function App() {
   const sliderRef = useRef<any>(null);
   const testimonialSliderRef = useRef<any>(null);
   const [showServices, setShowServices] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   /** Just for returning to Privacy Policy */
   const page = new URLSearchParams(window.location.search).get("page");
@@ -60,6 +64,18 @@ export default function App() {
 
   if (page === "privacy-policy") {
     return <PrivacyPolicy />;
+  }
+
+  if (page === "aboutus") {
+    return (
+      <AboutUs
+        onNavigate={(page) => {
+          if (page === "home") {
+            window.location.href = "/";
+          }
+        }}
+      />
+    );
   }
 
   /** End Just for returning to Privacy Policy */
@@ -401,137 +417,7 @@ export default function App() {
 
   return (
     <div className="size-full bg-[#F5F1EA] text-[#332C26] overflow-x-hidden">
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="relative z-50 bg-[#F5F1EA]"
-        style={{ height: "92px" }}
-      >
-        <div className="max-w-[1720px] mx-auto h-full px-8">
-          <div className="flex items-center justify-between h-full">
-            {/* LEFT LOGO */}
-            <div className="flex items-center min-w-[240px]">
-              <motion.img
-                whileHover={{ scale: 1.03 }}
-                src={logo}
-                alt="3G Decorative Group"
-                className="w-auto object-contain"
-                style={{
-                  height: "105px",
-                  marginTop: "8px",
-                  marginLeft: "-72px",
-                  filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.16))",
-                }}
-              />
-            </div>
-
-            {/* CENTER MENU */}
-
-            <div className="hidden lg:flex items-center gap-16">
-              {[
-                { id: "home", label: "HOME" },
-                { id: "features", label: "EXPERTISE" },
-                { id: "about", label: "ABOUT" },
-                { id: "services", label: "SERVICES" },
-                { id: "projects", label: "PROJECTS" },
-                { id: "contact", label: "CONTACT" },
-              ].map((item) =>
-                // temporary just for redirection for services page
-                item.id === "services" ? (
-                  <a
-                    href="?page=services"
-                    className="relative uppercase transition-all duration-500 text-[#332C26] hover:text-[#ea7a12]"
-                    style={{
-                      fontFamily: "'Parkinsans', sans-serif",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      letterSpacing: "0.14em",
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className={`relative uppercase transition-all duration-500 ${
-                      activeNav === item.id
-                        ? "text-[#ea7a12]"
-                        : "text-[#332C26] hover:text-[#ea7a12]"
-                    }`}
-                    style={{
-                      fontFamily: "'Parkinsans', sans-serif",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      letterSpacing: "0.14em",
-                    }}
-                  >
-                    {item.label}
-
-                    {/* Animated underline */}
-                    <motion.span
-                      initial={false}
-                      animate={{
-                        width: activeNav === item.id ? "34px" : "0px",
-                        opacity: activeNav === item.id ? 1 : 0,
-                      }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute left-1/2 -translate-x-1/2 -bottom-3 h-[2px] bg-gradient-to-r from-[#ea7a12] to-[#f3bb27] rounded-full"
-                    />
-                  </a>
-                ),
-              )}
-            </div>
-
-            {/* RIGHT CTA */}
-            <div className="flex justify-end min-w-[260px]">
-              <motion.button
-                whileHover={{
-                  scale: 1.04,
-                  y: -2,
-                }}
-                whileTap={{
-                  scale: 0.98,
-                }}
-                className="relative overflow-hidden px-10 py-4 rounded-full"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #f4b223 0%, #ea7a12 100%)",
-                  boxShadow: "0 16px 40px rgba(234,122,18,0.24)",
-                }}
-              >
-                {/* Shine Animation */}
-                <motion.div
-                  animate={{
-                    x: ["-150%", "250%"],
-                  }}
-                  transition={{
-                    duration: 2.8,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0 w-1/3 bg-white/20 skew-x-[-20deg]"
-                />
-
-                {/* Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-50" />
-
-                <span
-                  className="relative z-10 text-white"
-                  style={{
-                    fontFamily: "'Parkinsans', sans-serif",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    letterSpacing: "0.04em",
-                  }}
-                >
-                  Book Consultation
-                </span>
-              </motion.button>
-            </div>
-          </div>
-        </div>
-      </motion.nav>
+      <Navbar activeNav="home" />
 
       {/* Hero Section - Premium Editorial Framing */}
       <HeroSection />
@@ -880,42 +766,65 @@ export default function App() {
           >
             {/* GRID */}
             <div
+              // className="
+              // relative
+              //   w-full
+              //   max-w-[620px]
+              //   h-[620px]
+              //   mx-auto
+              // "
               className="
-              relative
+                relative
                 w-full
                 max-w-[620px]
-                h-[620px]
+                aspect-square
                 mx-auto
-              "
+                "
             >
               {[
                 {
                   img: aboutImages[0],
-                  top: "0px",
-                  left: "0px",
-                  width: "270px",
-                  height: "220px",
+                  // top: "0px",
+                  // left: "0px",
+                  // width: "270px",
+                  // height: "220px",
+                  top: "0%",
+                  left: "0%",
+                  width: "44%",
+                  height: "35%",
                 },
                 {
                   img: aboutImages[1],
-                  top: "40px",
-                  left: "285px",
-                  width: "250px",
-                  height: "300px",
+                  // top: "40px",
+                  // left: "285px",
+                  // width: "250px",
+                  // height: "300px",
+                  top: "6%",
+                  left: "50%",
+                  width: "42%",
+                  height: "48%",
                 },
                 {
                   img: aboutImages[2],
-                  top: "240px",
-                  left: "0px",
-                  width: "270px",
-                  height: "300px",
+                  // top: "240px",
+                  // left: "0px",
+                  // width: "270px",
+                  // height: "300px",
+                  top: "40%",
+                  left: "0%",
+                  width: "44%",
+                  height: "48%",
                 },
                 {
                   img: aboutImages[3],
-                  top: "355px",
-                  left: "285px",
-                  width: "270px",
-                  height: "220px",
+                  // top: "355px",
+                  // left: "285px",
+                  // width: "270px",
+                  // height: "220px",
+                  top: "60%",
+                  left: "50%",
+                  width: "42%",
+                  height: "35%",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -2133,584 +2042,7 @@ export default function App() {
       </section>
 
       {/* Footer - Dark Background */}
-      <footer
-        id="contact"
-        className="relative overflow-hidden bg-[#2A211C] text-[#F5F1EA] pt-28"
-      >
-        {/* Luxury background */}
-        <div className="absolute inset-0 opacity-10">
-          <img
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600"
-            className="w-full h-full object-cover"
-            alt=""
-          />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-[#2A211C]/90 to-[#17110D]" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-8">
-          {/* Top Footer */}
-          <div className="grid lg:grid-cols-4 gap-16 pb-20 border-b border-[#D4A24C]/20">
-            {/* Logo */}
-            <div>
-              <motion.img
-                src={logo}
-                alt="3G Decorative Group"
-                className="w-44 lg:w-52 mb-8"
-                animate={{
-                  filter: [
-                    "drop-shadow(0 0 0px #D4A24C)",
-                    "drop-shadow(0 0 12px #D4A24C)",
-                    "drop-shadow(0 0 0px #D4A24C)",
-                  ],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
-              />
-
-              <p
-                className="text-[#D7D0C7] leading-8 text-sm"
-                style={{
-                  fontFamily: "'Parkinsans',sans-serif",
-                }}
-              >
-                Crafting luxurious interiors that blend elegance, innovation and
-                timeless sophistication.
-              </p>
-
-              <div className="flex gap-4 mt-8">
-                {[Instagram, Facebook, Linkedin].map((Icon, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{
-                      y: -6,
-                      scale: 1.12,
-                      boxShadow: "0 0 20px rgba(212,162,76,.35)",
-                    }}
-                    className="
-                  size-12
-                  rounded-full
-                  border
-                  border-[#D4A24C]
-                  flex
-                  items-center
-                  justify-center
-                  cursor-pointer
-                  hover:bg-[#D4A24C]
-                  hover:text-black
-                  transition-all
-                  "
-                  >
-                    <Icon size={18} />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Links */}
-
-            <div>
-              <h3
-                className="
-              text-[#D4A24C]
-              mb-8
-              tracking-[0.2em]
-              "
-              >
-                QUICK LINKS
-              </h3>
-
-              {[
-                "Home",
-                "About Us",
-                "Services",
-                "Projects",
-                "Our Process",
-                "Testimonials",
-              ].map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ x: 8 }}
-                  className="
-                group
-                flex
-                justify-between
-                items-center
-                mb-5
-                cursor-pointer
-                border-b
-                border-[#D4A24C]/10
-                pb-3
-                "
-                  style={{
-                    fontFamily: "'Parkinsans',sans-serif",
-                    fontSize: "15px",
-                  }}
-                >
-                  <span
-                    className="
-                group-hover:text-[#D4A24C]
-                transition-all
-                "
-                  >
-                    {item}
-                  </span>
-
-                  <ChevronRight
-                    size={16}
-                    className="
-                text-[#D4A24C]
-                group-hover:translate-x-1
-                transition-all
-                "
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Services */}
-
-            <div>
-              <h3
-                className="
-            text-[#D4A24C]
-            mb-8
-            tracking-[0.2em]
-            "
-              >
-                SERVICES
-              </h3>
-
-              {[
-                "Interior Design",
-                "Architecture",
-                "Space Planning",
-                "Furniture Design",
-                "Luxury Living",
-              ].map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ x: 8 }}
-                  className="
-            group
-            flex
-            justify-between
-            items-center
-            mb-5
-            border-b
-            border-[#D4A24C]/10
-            pb-3
-            cursor-pointer
-            "
-                  style={{
-                    fontFamily: "'Parkinsans',sans-serif",
-                    fontSize: "15px",
-                  }}
-                >
-                  <span
-                    className="
-            group-hover:text-[#D4A24C]
-            transition-all
-            "
-                  >
-                    {item}
-                  </span>
-
-                  <ChevronRight
-                    size={16}
-                    className="
-            text-[#D4A24C]
-            group-hover:translate-x-1
-            transition-all
-            "
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Contact */}
-
-            <div>
-              <h3
-                className="
-            text-[#D4A24C]
-            mb-8
-            tracking-[0.2em]
-            "
-              >
-                CONTACT
-              </h3>
-
-              <div
-                className="space-y-6"
-                style={{
-                  fontFamily: "'Parkinsans',sans-serif",
-                  fontSize: "15px",
-                }}
-              >
-                {[
-                  {
-                    icon: MapPin,
-                    title: "Kolkata, West Bengal",
-                    sub: "India",
-                  },
-
-                  {
-                    icon: Phone,
-                    title: "+91 XXXXX XXXXX",
-                  },
-
-                  {
-                    icon: Mail,
-                    title: "info@3gdecorativegroup.com",
-                  },
-
-                  {
-                    icon: Clock,
-                    title: "Mon - Sat : 10 AM - 7 PM",
-                  },
-                ].map((item, index) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <motion.div
-                      key={index}
-                      whileHover={{
-                        x: 10,
-                      }}
-                      className="
-              group
-              flex
-              items-center
-              gap-5
-              cursor-pointer
-              "
-                    >
-                      <motion.div
-                        whileHover={{
-                          scale: 1.1,
-                          boxShadow: "0 0 18px rgba(212,162,76,.35)",
-                        }}
-                        className="
-              w-14
-              h-14
-              min-w-[56px]
-              rounded-full
-              border
-              border-[#D4A24C]/40
-              flex
-              items-center
-              justify-center
-              text-[#D4A24C]
-              transition-all
-              duration-500
-              "
-                      >
-                        <Icon size={20} />
-                      </motion.div>
-
-                      <div>
-                        <p
-                          className="
-              text-[#F5F1EA]
-              group-hover:text-[#D4A24C]
-              transition-all
-              "
-                        >
-                          {item.title}
-                        </p>
-
-                        {item.sub && (
-                          <p
-                            className="
-              text-sm
-              text-[#B7ADA0]
-              "
-                          >
-                            {item.sub}
-                          </p>
-                        )}
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-
-          <div
-            className="
-            mt-20
-            border
-            border-[#D4A24C]/20
-            rounded-[28px]
-            bg-gradient-to-r
-            from-[#2A1E16]/90
-            to-[#32241B]/70
-            backdrop-blur-md
-            px-10
-            py-10
-            "
-          >
-            <div
-              className="
-            flex
-            flex-col
-            lg:flex-row
-            items-center
-            justify-between
-            gap-10
-            "
-            >
-              {/* LEFT */}
-
-              <div
-                className="
-            flex
-            items-center
-            gap-8
-            flex-1
-            "
-              >
-                <div
-                  className="
-            w-20
-            h-20
-            rounded-full
-            border
-            border-dashed
-            border-[#D4A24C]/35
-            flex
-            items-center
-            justify-center
-            text-[#D4A24C]
-            "
-                >
-                  <Mail size={34} />
-                </div>
-
-                <div
-                  className="
-            hidden
-            lg:block
-            w-[1px]
-            h-20
-            bg-[#D4A24C]/20
-            "
-                />
-
-                <div>
-                  <h3
-                    className="
-            text-[#E8DED0]
-            tracking-[0.08em]
-            mb-3
-            "
-                    style={{
-                      fontFamily: "'Parkinsans',sans-serif",
-                      fontSize: "42px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    STAY INSPIRED
-                  </h3>
-
-                  <p
-                    className="
-            text-[#B9ADA0]
-            max-w-md
-            leading-8
-            "
-                    style={{
-                      fontFamily: "'Parkinsans',sans-serif",
-                    }}
-                  >
-                    Subscribe to our newsletter and be the first to know about
-                    our latest projects and ideas.
-                  </p>
-                </div>
-              </div>
-
-              {/* RIGHT */}
-
-              <div
-                className="
-            flex-1
-            "
-              >
-                <div
-                  className="
-            flex
-            h-[88px]
-            overflow-hidden
-            border
-            border-[#D4A24C]/25
-            rounded-[18px]
-            "
-                >
-                  <input
-                    placeholder="Enter your email address"
-                    className="
-            flex-1
-            bg-transparent
-            outline-none
-            px-8
-            text-[#F5F1EA]
-            placeholder:text-[#8A7E72]
-            "
-                    style={{
-                      fontFamily: "'Parkinsans',sans-serif",
-                      fontSize: "18px",
-                    }}
-                  />
-
-                  <motion.button
-                    whileHover={{
-                      background: "#E3B75D",
-                    }}
-                    className="
-            w-[230px]
-            bg-gradient-to-r
-            from-[#C89A44]
-            to-[#DDAF56]
-            text-black
-            tracking-[0.18em]
-            font-medium
-            "
-                    style={{
-                      fontFamily: "'Parkinsans',sans-serif",
-                    }}
-                  >
-                    SUBSCRIBE →
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom */}
-
-          <div
-            className="
-      mt-10
-      pt-8
-      border-t
-      border-[#D4A24C]/20
-      relative
-      "
-          >
-            {/* Center ornament */}
-
-            <div
-              className="
-      absolute
-      left-1/2
-      -top-[13px]
-      -translate-x-1/2
-      bg-[#1F1713]
-      px-5
-      text-[#D4A24C]
-      text-[14px]
-      "
-            >
-              ✧
-            </div>
-
-            <div
-              className="
-      flex
-      flex-col
-      lg:flex-row
-      justify-between
-      items-center
-      gap-4
-      text-[#A89E92]
-      "
-              style={{
-                paddingBottom: "15px",
-                fontFamily: "'Parkinsans',sans-serif",
-                fontSize: "13px",
-              }}
-            >
-              <p
-                className="
-      tracking-[0.03em]
-      "
-              >
-                © 2025 3G Decorative Group. All Rights Reserved.
-              </p>
-
-              <motion.div
-                whileHover={{
-                  scale: 1.02,
-                }}
-                className="
-      flex
-      items-center
-      gap-2
-      "
-              >
-                <span>Designed & Developed By</span>
-
-                <span
-                  className="
-      text-[#D4A24C]
-      font-medium
-      hover:text-[#E3B75D]
-      transition-all
-      cursor-pointer
-      "
-                >
-                  CodeInQ
-                </span>
-              </motion.div>
-
-              <div
-                className="
-      flex
-      items-center
-      gap-5
-      "
-              >
-                <a
-                  href="?page=privacy-policy"
-                  className="
-        hover:text-[#D4A24C]
-        cursor-pointer
-        transition-all
-        "
-                >
-                  Privacy Policy
-                </a>
-
-                {/* </span> */}
-
-                <span
-                  className="
-      text-[#5A4B40]
-      "
-                >
-                  |
-                </span>
-
-                <span
-                  className="
-      hover:text-[#D4A24C]
-      cursor-pointer
-      transition-all
-      "
-                >
-                  Terms & Conditions
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

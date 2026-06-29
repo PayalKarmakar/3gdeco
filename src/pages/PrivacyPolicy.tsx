@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import logo from "../assets/images/3GDecoLogo-2.png";
 import privacyLock from "../assets/images/lock.png";
+import Navbar from "../app/components/Navbar";
 
 export default function PrivacyPolicy() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -41,114 +42,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <div className="bg-[#F5F1EA] overflow-x-hidden">
-        <motion.nav
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          className="relative z-50 bg-[#F5F1EA]"
-          style={{ height: "92px" }}
-        >
-          <div className="max-w-[1720px] mx-auto h-full px-8">
-            <div className="flex items-center justify-between h-full">
-              {/* LEFT LOGO */}
-              <div className="flex items-center min-w-[240px]">
-                <motion.img
-                  whileHover={{ scale: 1.03 }}
-                  src={logo}
-                  alt="3G Decorative Group"
-                  className="w-auto object-contain"
-                  style={{
-                    height: "105px",
-                    marginTop: "8px",
-                    marginLeft: "-72px",
-                    filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.16))",
-                  }}
-                />
-              </div>
-
-              {/* CENTER MENU */}
-              <div className="hidden lg:flex items-center gap-16">
-                {[
-                  { id: "home", label: "HOME" },
-                  { id: "features", label: "EXPERTISE" },
-                  { id: "about", label: "ABOUT" },
-                  { id: "services", label: "SERVICES" },
-                  { id: "projects", label: "PROJECTS" },
-                  { id: "contact", label: "CONTACT" },
-                ].map((item) => (
-                  <a
-                    key={item.id}
-                    href={`./#${item.id}`}
-                    className="
-                          relative
-                          uppercase
-                          transition-all
-                          duration-500
-                          text-[#332C26]
-                          hover:text-[#ea7a12]
-                          "
-                    style={{
-                      fontFamily: "'Parkinsans', sans-serif",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      letterSpacing: "0.14em",
-                    }}
-                  >
-                    {item.label}
-
-                    {/* Animated underline */}
-                  </a>
-                ))}
-              </div>
-
-              {/* RIGHT CTA */}
-              <div className="flex justify-end min-w-[260px]">
-                <motion.button
-                  whileHover={{
-                    scale: 1.04,
-                    y: -2,
-                  }}
-                  whileTap={{
-                    scale: 0.98,
-                  }}
-                  className="relative overflow-hidden px-10 py-4 rounded-full"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #f4b223 0%, #ea7a12 100%)",
-                    boxShadow: "0 16px 40px rgba(234,122,18,0.24)",
-                  }}
-                >
-                  {/* Shine Animation */}
-                  <motion.div
-                    animate={{
-                      x: ["-150%", "250%"],
-                    }}
-                    transition={{
-                      duration: 2.8,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute inset-0 w-1/3 bg-white/20 skew-x-[-20deg]"
-                  />
-
-                  {/* Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-50" />
-
-                  <span
-                    className="relative z-10 text-white"
-                    style={{
-                      fontFamily: "'Parkinsans', sans-serif",
-                      fontSize: "15px",
-                      fontWeight: 600,
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    Book Consultation
-                  </span>
-                </motion.button>
-              </div>
-            </div>
-          </div>
-        </motion.nav>
+        <Navbar />
 
         {/* HERO SECTION */}
 

@@ -8,7 +8,6 @@ import {
   Clock,
   ChevronRight,
 } from "lucide-react";
-
 import { motion } from "framer-motion";
 import logo from "../../assets/images/3GDecoLogo-2.png";
 
@@ -29,9 +28,25 @@ export default function Footer() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#2A211C]/90 to-[#17110D]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8">
+      <div
+        // className="relative z-10 max-w-7xl mx-auto px-8"
+        className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8"
+      >
         {/* Top Footer */}
-        <div className="grid lg:grid-cols-4 gap-16 pb-20 border-b border-[#D4A24C]/20">
+        <div
+          //className="grid lg:grid-cols-4 gap-16 pb-20 border-b border-[#D4A24C]/20"
+          className="
+grid
+grid-cols-1
+sm:grid-cols-2
+xl:grid-cols-4
+gap-10
+lg:gap-16
+pb-20
+border-b
+border-[#D4A24C]/20
+"
+        >
           {/* Logo */}
           <div>
             <motion.img
@@ -61,7 +76,7 @@ export default function Footer() {
               timeless sophistication.
             </p>
 
-            <div className="flex gap-4 mt-8">
+            <div className="flex justify-center lg:justify-start gap-4 mt-8">
               {[Instagram, Facebook, Linkedin].map((Icon, index) => (
                 <motion.div
                   key={index}
@@ -262,12 +277,12 @@ export default function Footer() {
                       x: 10,
                     }}
                     className="
-              group
-              flex
-              items-center
-              gap-5
-              cursor-pointer
-              "
+                    group
+                    flex
+                    items-center
+                    gap-5
+                    cursor-pointer
+                    "
                   >
                     <motion.div
                       whileHover={{
@@ -275,19 +290,19 @@ export default function Footer() {
                         boxShadow: "0 0 18px rgba(212,162,76,.35)",
                       }}
                       className="
-              w-14
-              h-14
-              min-w-[56px]
-              rounded-full
-              border
-              border-[#D4A24C]/40
-              flex
-              items-center
-              justify-center
-              text-[#D4A24C]
-              transition-all
-              duration-500
-              "
+                        w-14
+                        h-14
+                        min-w-[56px]
+                        rounded-full
+                        border
+                        border-[#D4A24C]/40
+                        flex
+                        items-center
+                        justify-center
+                        text-[#D4A24C]
+                        transition-all
+                        duration-500
+                        "
                     >
                       <Icon size={20} />
                     </motion.div>
@@ -295,10 +310,10 @@ export default function Footer() {
                     <div>
                       <p
                         className="
-              text-[#F5F1EA]
-              group-hover:text-[#D4A24C]
-              transition-all
-              "
+                        text-[#F5F1EA]
+                        group-hover:text-[#D4A24C]
+                        transition-all
+                        "
                       >
                         {item.title}
                       </p>
@@ -306,9 +321,9 @@ export default function Footer() {
                       {item.sub && (
                         <p
                           className="
-              text-sm
-              text-[#B7ADA0]
-              "
+                          text-sm
+                          text-[#B7ADA0]
+                          "
                         >
                           {item.sub}
                         </p>
@@ -351,49 +366,54 @@ export default function Footer() {
 
             <div
               className="
-            flex
-            items-center
-            gap-8
-            flex-1
-            "
+                flex
+                flex-col
+                sm:flex-row
+                items-center
+                text-center
+                sm:text-left
+                gap-6
+                flex-1
+                "
             >
               <div
                 className="
-            w-20
-            h-20
-            rounded-full
-            border
-            border-dashed
-            border-[#D4A24C]/35
-            flex
-            items-center
-            justify-center
-            text-[#D4A24C]
-            "
+                  w-20
+                  h-20
+                  rounded-full
+                  border
+                  border-dashed
+                  border-[#D4A24C]/35
+                  flex
+                  items-center
+                  justify-center
+                  text-[#D4A24C]
+                  "
               >
                 <Mail size={34} />
               </div>
 
               <div
                 className="
-            hidden
-            lg:block
-            w-[1px]
-            h-20
-            bg-[#D4A24C]/20
-            "
+                hidden
+                lg:block
+                w-[1px]
+                h-20
+                bg-[#D4A24C]/20
+                "
               />
 
               <div>
                 <h3
                   className="
-            text-[#E8DED0]
-            tracking-[0.08em]
-            mb-3
-            "
+                  text-[#E8DED0]
+                  tracking-[0.08em]
+                  mb-3
+                  text-3xl
+                  sm:text-4xl
+                  lg:text-[42px]"
                   style={{
                     fontFamily: "'Parkinsans',sans-serif",
-                    fontSize: "42px",
                     fontWeight: 500,
                   }}
                 >
@@ -425,24 +445,31 @@ export default function Footer() {
             >
               <div
                 className="
-            flex
-            h-[88px]
-            overflow-hidden
-            border
-            border-[#D4A24C]/25
-            rounded-[18px]
-            "
+                  flex                
+                  flex-row
+                  w-full
+                  max-w-[620px]
+                  mx-auto
+                  border
+                  border-[#D4A24C]/20
+                  rounded-2xl
+                  overflow-hidden
+                "
               >
                 <input
-                  placeholder="Enter your email address"
-                  className="
-            flex-1
-            bg-transparent
-            outline-none
-            px-8
-            text-[#F5F1EA]
-            placeholder:text-[#8A7E72]
-            "
+                  placeholder="Email address"
+                  className="flex-1
+                    w-full
+                    h-14
+                    sm:h-[72px]
+                    px-6
+                    bg-transparent
+                    outline-none
+                    text-[#F5F1EA]
+                    placeholder:text-[#8A8177]
+                    text-[15px]
+                    sm:text-[17px]
+                  "
                   style={{
                     fontFamily: "'Parkinsans',sans-serif",
                     fontSize: "18px",
@@ -454,14 +481,23 @@ export default function Footer() {
                     background: "#E3B75D",
                   }}
                   className="
-            w-[230px]
-            bg-gradient-to-r
-            from-[#C89A44]
-            to-[#DDAF56]
-            text-black
-            tracking-[0.18em]
-            font-medium
-            "
+                    w-[120px]
+                    sm:w-[170px]
+                    h-14
+                    sm:h-[72px]
+                    shrink-0
+                    bg-gradient-to-r
+                    from-[#C89A44]
+                    to-[#DDAF56]
+                    text-black
+                    text-[12px]
+                    sm:text-[15px]
+                    tracking-[0.08em]
+                    font-semibold
+                    flex
+                    items-center
+                    justify-center
+                    "
                   style={{
                     fontFamily: "'Parkinsans',sans-serif",
                   }}
@@ -477,110 +513,108 @@ export default function Footer() {
 
         <div
           className="
-      mt-10
-      pt-8
-      border-t
-      border-[#D4A24C]/20
-      relative
-      "
+            mt-10
+            pt-8
+            border-t
+            border-[#D4A24C]/20
+            relative
+            "
         >
           {/* Center ornament */}
 
           <div
             className="
-      absolute
-      left-1/2
-      -top-[13px]
-      -translate-x-1/2
-      bg-[#1F1713]
-      px-5
-      text-[#D4A24C]
-      text-[14px]
-      "
+              absolute
+              left-1/2
+              -top-[13px]
+              -translate-x-1/2
+              bg-[#1F1713]
+              px-5
+              text-[#D4A24C]
+              text-[14px]
+              "
           >
             ✧
           </div>
 
           <div
             className="
-      flex
-      flex-col
-      lg:flex-row
-      justify-between
-      items-center
-      gap-4
-      text-[#A89E92]
-      "
+              flex
+              flex-col
+              lg:flex-row
+              justify-between
+              items-center
+              text-center
+              lg:text-left
+              gap-6
+              "
             style={{
               paddingBottom: "15px",
               fontFamily: "'Parkinsans',sans-serif",
               fontSize: "13px",
             }}
           >
-            <p
-              className="
-      tracking-[0.03em]
-      "
-            >
+            <p className="tracking-[0.03em]">
               © 2025 3G Decorative Group. All Rights Reserved.
             </p>
-
             <motion.div
               whileHover={{
                 scale: 1.02,
               }}
               className="
-      flex
-      items-center
-      gap-2
-      "
+                flex
+                items-center
+                gap-2
+                "
             >
               <span>Designed & Developed By</span>
 
-              <span
-                className="
-      text-[#D4A24C]
-      font-medium
-      hover:text-[#E3B75D]
-      transition-all
-      cursor-pointer
-      "
+              <a
+                href="https://codeinq.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D4A24C] font-medium hover:text-[#E3B75D] transition-colors cursor-pointer"
               >
                 CodeInQ
-              </span>
+              </a>
             </motion.div>
 
             <div
               className="
-      flex
-      items-center
-      gap-5
-      "
+              flex
+              flex-wrap
+              justify-center
+              lg:justify-end
+              items-center
+              gap-4
+              "
             >
-              <span
+              <a
+                href="?page=privacy-policy"
                 className="
-      hover:text-[#D4A24C]
-      cursor-pointer
-      transition-all
-      "
+                hover:text-[#D4A24C]
+                cursor-pointer
+                transition-all"
               >
                 Privacy Policy
-              </span>
+              </a>
+
+              {/* </span> */}
 
               <span
                 className="
-      text-[#5A4B40]
-      "
+                text-[#5A4B40]
+                "
               >
                 |
               </span>
 
               <span
                 className="
-      hover:text-[#D4A24C]
-      cursor-pointer
-      transition-all
-      "
+                hover:text-[#D4A24C]
+                cursor-pointer
+                transition-all
+                "
               >
                 Terms & Conditions
               </span>
