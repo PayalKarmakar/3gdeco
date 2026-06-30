@@ -10,13 +10,14 @@ export default function Navbar({
   activeNav = "",
   scrolled = false,
 }: NavbarProps) {
+  const BASE_URL = "/3gdeco/tmp_2";
   const menu = [
-    { id: "home", label: "HOME", link: "/" },
-    { id: "features", label: "EXPERTISE", link: "/#features" },
+    { id: "home", label: "HOME", link: `${BASE_URL}/` },
+    { id: "features", label: "EXPERTISE", link: "#" },
     { id: "about", label: "ABOUT", link: "?page=aboutus" },
     { id: "services", label: "SERVICES", link: "?page=services" },
-    { id: "projects", label: "PROJECTS", link: "/#projects" },
-    { id: "contact", label: "CONTACT", link: "/#contact" },
+    { id: "projects", label: "PROJECTS", link: "#" },
+    { id: "contact", label: "CONTACT", link: "#" },
   ];
 
   return (

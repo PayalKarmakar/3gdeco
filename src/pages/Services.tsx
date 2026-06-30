@@ -275,13 +275,21 @@ function Hero({ onNavigate }: { onNavigate: ServicesProps["onNavigate"] }) {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="flex items-center gap-3 mb-8"
           >
-            <button
+            <a
+              href="./"
+              className="text-[#F5F1EA]/35 hover:text-[#f3bb27] text-[11px] uppercase tracking-[0.25em] transition-colors"
+              style={{ fontFamily: "'Parkinsans', sans-serif" }}
+            >
+              Home
+            </a>
+
+            {/* <button
               onClick={() => onNavigate("home")}
               className="text-[#F5F1EA]/35 hover:text-[#f3bb27] text-[11px] uppercase tracking-[0.25em] transition-colors"
               style={{ fontFamily: "'Parkinsans', sans-serif" }}
             >
               Home
-            </button>
+            </button> */}
             <ChevronRight className="size-3 text-[#f3bb27]/30" />
             <span
               className="text-[#f3bb27] text-[11px] uppercase tracking-[0.25em]"

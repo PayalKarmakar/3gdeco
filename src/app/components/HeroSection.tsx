@@ -67,9 +67,10 @@ const stats: HeroStat[] = [
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative bg-[#F6F2EC] px-4 pb-19 lg:px-5">
+    // <section id="home" className="relative bg-[#F6F2EC] px-4 pb-19 lg:px-5">
+    <section id="home" className="relative">
       <div className="relative overflow-visible h-[760px] w-full">
-        {/* HERO IMAGE */}
+        {/* HERO IMAGE  rounded-[32px]*/}
         <img
           src={heroImage}
           alt="Hero"
@@ -79,7 +80,7 @@ export default function HeroSection() {
             w-full
             h-full
             object-cover
-            rounded-[32px]"
+           "
         />
 
         <div
@@ -191,28 +192,28 @@ export default function HeroSection() {
 
           style={{
             background: `
-    linear-gradient(
-      90deg,
+              linear-gradient(
+                90deg,
 
-      rgba(255,255,255,.06) 0%,
+                rgba(255,255,255,.06) 0%,
 
-      rgba(255,255,255,.02) 18%,
+                rgba(255,255,255,.02) 18%,
 
-      rgba(0,0,0,0) 28%,
+                rgba(0,0,0,0) 28%,
 
-      rgba(0,0,0,.14) 40%,
+                rgba(0,0,0,.14) 40%,
 
-      rgba(0,0,0,.26) 50%,
+                rgba(0,0,0,.26) 50%,
 
-      rgba(0,0,0,.14) 60%,
+                rgba(0,0,0,.14) 60%,
 
-      rgba(0,0,0,0) 72%,
+                rgba(0,0,0,0) 72%,
 
-      rgba(255,255,255,.02) 82%,
+                rgba(255,255,255,.02) 82%,
 
-      rgba(255,255,255,.06) 100%
-    )
-  `,
+                rgba(255,255,255,.06) 100%
+              )
+            `,
           }}
         />
         <div
@@ -763,19 +764,19 @@ export default function HeroSection() {
             absolute
             left-1/2
             -translate-x-1/2
-            bottom-[-52px]
+            bottom-[-55px]
             z-30
            
             flex
             justify-center
             w-[94%]
-    sm:w-[92%]
-    md:w-[88%]
-    lg:w-[82%]
-    xl:w-[900px]
-    2xl:w-[980px]
+            sm:w-[92%]
+            md:w-[88%]
+            lg:w-[82%]
+            xl:w-[900px]
+            2xl:w-[980px]
 
-        "
+                "
         >
           {/* <div
             className="

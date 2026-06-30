@@ -427,7 +427,7 @@ export default function App() {
         id="features"
         className="relative bg-[#2E2723] px-6 lg:px-8"
         style={{
-          marginTop: "-70px",
+          // marginTop: "-70px",
           paddingTop: "110px",
           paddingBottom: "90px",
           zIndex: 20,
