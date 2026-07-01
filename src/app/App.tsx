@@ -427,7 +427,7 @@ export default function App() {
         id="features"
         className="relative bg-[#2E2723] px-6 lg:px-8"
         style={{
-          // marginTop: "-70px",
+          marginTop: "-75px",
           paddingTop: "110px",
           paddingBottom: "90px",
           zIndex: 20,
@@ -453,7 +453,7 @@ export default function App() {
                 lg:-mt-14"
             >
               {/* Luxury Label */}
-              <div className="flex items-center justify-center gap-3 mb-6">
+              {/* <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-2 h-2 bg-[#f3bb27] rotate-45" />
                 <span
                   className="text-white tracking-[0.2em] text-xs font-medium uppercase"
@@ -461,7 +461,7 @@ export default function App() {
                 >
                   Expertise
                 </span>
-              </div>
+              </div> */}
               {/* Luxury Heading */}
               <h2
                 className="
@@ -473,7 +473,7 @@ export default function App() {
                   fontFamily: "'Parkinsans',sans-serif",
                   fontSize: "clamp(38px,5vw,58px)",
                   fontWeight: 500,
-                  letterSpacing: "-0.04em",
+                  letterSpacing: "-0.02em",
                 }}
               >
                 Crafting
@@ -672,7 +672,7 @@ export default function App() {
 
             {/* STATS */}
 
-            <div
+            {/* <div
               className="
               grid
               grid-cols-3
@@ -753,7 +753,7 @@ export default function App() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* RIGHT IMAGE GRID */}
@@ -1033,7 +1033,7 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center justify-center gap-3 mb-6">
+              {/* <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-2 h-2 bg-[#f3bb27] rotate-45" />
                 <span
                   className="text-white tracking-[0.2em] text-xs font-medium uppercase"
@@ -1041,7 +1041,7 @@ export default function App() {
                 >
                   Services
                 </span>
-              </div>
+              </div> */}
               <h2
                 className="text-[#f3bb27]"
                 style={{

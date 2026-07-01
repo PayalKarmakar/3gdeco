@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import logo from "../assets/images/3GDecoLogo-2.png";
 import privacyLock from "../assets/images/lock.png";
+import privacyBanner from "../assets/images/privacypolicybanner.jpg";
+import privacy2img from "../assets/images/privacy2img.jpg";
 import Navbar from "../app/components/Navbar";
+import Footer from "../app/components/Footer";
 
 export default function PrivacyPolicy() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -46,20 +49,10 @@ export default function PrivacyPolicy() {
 
         {/* HERO SECTION */}
 
-        <section
-          className="
-            relative
-            overflow-hidden
-            bg-[#1F1713]            
-            min-h-[780px]
-            sm:min-h-[850px]
-            md:min-h-[700px]
-            lg:h-[650px]
-            "
-        >
+        <section className="relative overflow-hidden min-h-[760px] sm:min-h-[820px] lg:min-h-[720px]">
           {/* Background */}
           <img
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920"
+            src={privacyBanner}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -81,6 +74,9 @@ export default function PrivacyPolicy() {
             className="
                   absolute
                   top-[90px]
+                  top-[70px]
+                  sm:top-[80px]
+                  md:top-[95px]
                   lg:top-[125px]
                   left-0
                   lg:left-[200px]
@@ -96,21 +92,25 @@ export default function PrivacyPolicy() {
 
           <div
             className="
-              relative z-30
+              relative
+              z-30
               max-w-[1280px]
               mx-auto
               px-6
-
-              h-full
-
+              min-h-[560px]
+              sm:min-h-[620px]
+              md:min-h-[680px]
+              lg:min-h-[720px]
               flex
               flex-col
               lg:flex-row
-
-              justify-center
+              justify-start
+              lg:justify-center
               items-center
-
-              gap-16
+              pt-30
+              sm:pt-24            
+              lg:pt-0
+              gap-12
               lg:gap-24
             "
           >
@@ -123,9 +123,8 @@ export default function PrivacyPolicy() {
                   flex flex-col
                   items-center lg:items-start
                   text-center lg:text-left
-                  max-w-[720px]
-                  mt-8
-                  lg:mt-0
+                  max-w-[720px]                
+                 
                   "
             >
               {/* Label */}
@@ -203,32 +202,32 @@ export default function PrivacyPolicy() {
 
             <motion.div
               className="
-              order-1 lg:order-1
+                relative
+                overflow-visible
 
-              relative
-              flex
-              items-center
-              justify-center
+                flex
+                items-center
+                justify-center
 
-               mt-24
-              sm:mt-28
-              md:mt-16
-              lg:mt-0
+                mt-8
+                sm:mt-10
+                md:mt-12
+                lg:mt-0
 
-              lg:-translate-x-44
-              xl:-translate-x-52
+                w-[140px]
+                h-[140px]
 
-              w-[140px]
-              h-[140px]
+                sm:w-[180px]
+                sm:h-[180px]
 
-              sm:w-[180px]
-              sm:h-[180px]
+                md:w-[220px]
+                md:h-[220px]
 
-              md:w-[220px]
-              md:h-[220px]
+                lg:w-[250px]
+                lg:h-[250px]
 
-              lg:w-[250px]
-              lg:h-[250px]
+                lg:-translate-x-44
+                xl:-translate-x-52
               "
               animate={{
                 y: [0, -12, 0],
@@ -270,10 +269,6 @@ export default function PrivacyPolicy() {
                   lg:w-[380px]
                   lg:h-[380px]
                   "
-                // style={{
-                //   width: "380px",
-                //   height: "380px"
-                // }}
               />
 
               <motion.div
@@ -294,19 +289,7 @@ export default function PrivacyPolicy() {
                   lg:w-[320px]
                   lg:h-[320px]
                 "
-                // style={{
-                //   width: "320px",
-                //   height: "320px"
-                // }}
               />
-
-              {/* SECOND RING */}
-              {/* <div
-                className="absolute -top-[20px] -left-[20px] w-[290px] h-[290px] rounded-full border border-[#D89A2D]/15"
-                style={{
-                  animation: "spiralRotate 12s linear infinite reverse"
-                }}
-              /> */}
 
               <motion.div
                 className="
@@ -326,57 +309,69 @@ export default function PrivacyPolicy() {
                   lg:w-[290px]
                   lg:h-[290px]
                 "
-                // style={{
-                //   width: "290px",
-                //   height: "290px"
-                // }}
               />
 
-              {/* SHIELD SVG */}
-              <svg
-                viewBox="0 0 250 260"
+              <div
                 className="
-                  absolute
-                  inset-0
-                  w-full
-                  h-full
-                  z-20
-                "
+                absolute
+                left-1/2
+                top-1/2
+                -translate-x-1/2
+                -translate-y-1/2
+
+                w-full
+                h-full
+              "
               >
-                <defs>
-                  <filter
-                    id="shieldGlow"
-                    x="-50%"
-                    y="-50%"
-                    width="200%"
-                    height="200%"
-                  >
-                    <feGaussianBlur stdDeviation="15" result="blur" />
-                    <feMerge>
-                      <feMergeNode in="blur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
+                {/* SHIELD SVG */}
+                <svg
+                  viewBox="0 0 250 260"
+                  className="
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+                    z-20
+                  "
+                >
+                  <defs>
+                    <filter
+                      id="shieldGlow"
+                      x="-50%"
+                      y="-50%"
+                      width="200%"
+                      height="200%"
+                    >
+                      <feGaussianBlur stdDeviation="15" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
 
-                  <radialGradient id="innerGlow">
-                    <stop offset="0%" stopColor="#D89A2D" stopOpacity=".65" />
-                    <stop offset="50%" stopColor="#D89A2D" stopOpacity=".25" />
-                    <stop offset="100%" stopColor="#D89A2D" stopOpacity="0" />
-                  </radialGradient>
-                </defs>
+                    <radialGradient id="innerGlow">
+                      <stop offset="0%" stopColor="#D89A2D" stopOpacity=".65" />
+                      <stop
+                        offset="50%"
+                        stopColor="#D89A2D"
+                        stopOpacity=".25"
+                      />
+                      <stop offset="100%" stopColor="#D89A2D" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
 
-                {/* INNER GLOW */}
-                <ellipse
-                  cx="125"
-                  cy="130"
-                  rx="95"
-                  ry="105"
-                  fill="url(#innerGlow)"
-                />
+                  {/* INNER GLOW */}
+                  <ellipse
+                    cx="125"
+                    cy="130"
+                    rx="95"
+                    ry="105"
+                    fill="url(#innerGlow)"
+                  />
 
-                {/* GOLD SHIELD GLOW */}
-                <path
-                  d="
+                  {/* GOLD SHIELD GLOW */}
+                  <path
+                    d="
                     M125 20
                     C160 45 195 55 215 60
                     V120
@@ -385,16 +380,16 @@ export default function PrivacyPolicy() {
                     V60
                     C55 55 90 45 125 20
                   "
-                  stroke="#D89A2D"
-                  strokeWidth="15"
-                  opacity=".45"
-                  fill="none"
-                  filter="url(#shieldGlow)"
-                />
+                    stroke="#D89A2D"
+                    strokeWidth="15"
+                    opacity=".45"
+                    fill="none"
+                    filter="url(#shieldGlow)"
+                  />
 
-                {/* WHITE SHIELD */}
-                <path
-                  d="
+                  {/* WHITE SHIELD */}
+                  <path
+                    d="
                     M125 20
                     C160 45 195 55 215 60
                     V120
@@ -403,28 +398,31 @@ export default function PrivacyPolicy() {
                     V60
                     C55 55 90 45 125 20
                   "
-                  stroke="white"
-                  strokeWidth="5"
-                  fill="none"
-                />
-              </svg>
+                    stroke="white"
+                    strokeWidth="5"
+                    fill="none"
+                  />
+                </svg>
 
-              {/* LOCK IMAGE */}
-              <img
-                src={privacyLock}
-                alt=""
-                className="
-                  absolute z-30
-                  w-[90%]
-                  sm:w-[100%]
+                {/* LOCK IMAGE */}
+                <img
+                  src={privacyLock}
+                  alt=""
+                  className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  -z-30
+                  w-[88%]
+                  sm:w-[95%]
+                  lg:w-full
                   "
-                style={{
-                  top: "18%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  filter: "drop-shadow(0 0 20px rgba(255,255,255,.35))",
-                }}
-              />
+                  style={{
+                    transform: "translate(-50%, -50%)",
+                    filter: "drop-shadow(0 0 20px rgba(255,255,255,.35))",
+                  }}
+                />
+              </div>
             </motion.div>
           </div>
         </section>
@@ -444,10 +442,10 @@ export default function PrivacyPolicy() {
               <div>
                 <div
                   className="
-              bg-white
-              rounded-[24px]
-              shadow-[0_10px_40px_rgba(0,0,0,.08)]
-              overflow-hidden"
+                  bg-white
+                  rounded-[24px]
+                  shadow-[0_10px_40px_rgba(0,0,0,.08)]
+                  overflow-hidden"
                 >
                   {accordionItems.map((item, index) => (
                     <div
@@ -469,10 +467,10 @@ export default function PrivacyPolicy() {
                       <div className="flex items-center gap-4">
                         <div
                           className="
-                      w-8 h-8
-                      rounded-full
-                      bg-[#F8F5F0]
-                      flex items-center justify-center"
+                          w-8 h-8
+                          rounded-full
+                          bg-[#F8F5F0]
+                          flex items-center justify-center"
                         >
                           <span className="text-sm">✓</span>
                         </div>
@@ -503,20 +501,20 @@ export default function PrivacyPolicy() {
               <div>
                 <div
                   className="
-                grid
-                grid-cols-1
-                xl:grid-cols-[1fr_400px]
-                gap-10
-                items-center"
+                  grid
+                  grid-cols-1
+                  xl:grid-cols-[1fr_400px]
+                  gap-10
+                  items-center"
                 >
                   {/* TEXT */}
                   <div>
                     <h2
                       className="
-                    text-[34px]
-                    md:text-[42px]
-                    xl:text-[52px]
-                    mb-6"
+                      text-[34px]
+                      md:text-[42px]
+                      xl:text-[52px]
+                      mb-6"
                       style={{
                         fontFamily: "Parkinsans",
                         fontWeight: 500,
@@ -567,7 +565,7 @@ export default function PrivacyPolicy() {
                   shadow-[0_15px_50px_rgba(0,0,0,.1)]"
                     >
                       <img
-                        src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
+                        src={privacy2img}
                         className="
                       w-full
                       h-[260px]
@@ -682,136 +680,7 @@ export default function PrivacyPolicy() {
 
         {/* Footer */}
 
-        <section className="bg-[#F8F5F0] pb-12 px-4 md:px-6">
-          <div
-            className="
-            w-full
-            max-w-[1400px]
-            mx-auto
-            rounded-[32px]
-            overflow-hidden
-            bg-[#120D09]
-            border border-[#2D2118]
-            shadow-[0_20px_60px_rgba(0,0,0,.15)]
-          "
-            style={{
-              background:
-                "linear-gradient(90deg,#0f0b08 0%,#1a120d 50%,#0f0b08 100%)",
-            }}
-          >
-            <div
-              className="
-              grid
-              grid-cols-1
-              md:grid-cols-2
-              xl:grid-cols-[2fr_1fr_1fr]"
-            >
-              {/* Left */}
-              <div
-                className="
-                flex
-                items-center
-                gap-5
-                px-6
-                md:px-10
-                py-8
-                border-b
-                lg:border-b-0
-                lg:border-r
-                border-[#2B211A]
-              "
-              >
-                <div
-                  className="
-                  w-16 h-16
-                  rounded-full
-                  border border-[#D89A2D]/30
-                  flex items-center justify-center
-                "
-                >
-                  <Shield size={28} color="#D89A2D" />
-                </div>
-
-                <div>
-                  <h3
-                    className="
-                    text-white
-                    text-[22px]
-                    md:text-[26px]
-                    leading-tight
-                  "
-                    style={{
-                      fontFamily: "Parkinsans",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Have any privacy related questions?
-                  </h3>
-
-                  <p
-                    className="text-[#D0C8BF] mt-2"
-                    style={{
-                      fontFamily: "Parkinsans",
-                    }}
-                  >
-                    We're here to help you.
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div
-                className="
-                flex
-                items-center
-                gap-4
-                px-8
-                py-8
-                border-b
-                lg:border-b-0
-                lg:border-r
-                border-[#2B211A]
-              "
-              >
-                <Phone size={22} color="#D89A2D" />
-
-                <span
-                  className="text-[#F5F1EA]"
-                  style={{
-                    fontFamily: "Parkinsans",
-                  }}
-                >
-                  +91 83209 02030
-                </span>
-              </div>
-
-              {/* Email */}
-              <div
-                className="
-                flex
-                items-center
-                gap-4
-                px-8
-                py-8
-              "
-              >
-                <Mail size={22} color="#D89A2D" />
-
-                <span
-                  className="
-                  text-[#F5F1EA]
-                  break-all
-                "
-                  style={{
-                    fontFamily: "Parkinsans",
-                  }}
-                >
-                  info@3gdecodesign.com
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Footer />
       </div>
     </>
   );

@@ -67,10 +67,10 @@ const stats: HeroStat[] = [
 
 export default function HeroSection() {
   return (
-    // <section id="home" className="relative bg-[#F6F2EC] px-4 pb-19 lg:px-5">
-    <section id="home" className="relative">
+    <section id="home" className="relative bg-[#F6F2EC] px-4 pb-19 lg:px-5">
+      {/* <section id="home" className="relative"> */}
       <div className="relative overflow-visible h-[760px] w-full">
-        {/* HERO IMAGE  rounded-[32px]*/}
+        {/* HERO IMAGE  */}
         <img
           src={heroImage}
           alt="Hero"
@@ -80,6 +80,7 @@ export default function HeroSection() {
             w-full
             h-full
             object-cover
+            rounded-[32px]
            "
         />
 

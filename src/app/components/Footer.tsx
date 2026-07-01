@@ -33,26 +33,87 @@ export default function Footer() {
         className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8"
       >
         {/* Top Footer */}
-        <div
-          //className="grid lg:grid-cols-4 gap-16 pb-20 border-b border-[#D4A24C]/20"
+        {/* <div
+          // className="
+          // grid
+          // grid-cols-1
+          // sm:grid-cols-2
+          // xl:grid-cols-4
+          // gap-10
+          // lg:gap-16
+          // pb-20
+          // border-b
+          // border-[#D4A24C]/20
+          // "
           className="
-grid
-grid-cols-1
-sm:grid-cols-2
-xl:grid-cols-4
-gap-10
-lg:gap-16
-pb-20
-border-b
-border-[#D4A24C]/20
-"
+            lg:col-span-3
+            flex
+            flex-col
+            items-center
+            lg:items-start
+            text-center
+            lg:text-left
+          "
+        > */}
+        <div
+          //         className="
+          //   grid
+          //   grid-cols-1
+          //   lg:grid-cols-12
+
+          //   gap-y-12
+          //   gap-x-10
+          //   lg:gap-x-16
+
+          //   items-start
+
+          //   pb-20
+          //   border-b
+          //   border-[#D4A24C]/20
+          // "
+          className="
+  grid
+    grid-cols-1
+    lg:grid-cols-12
+    gap-10
+    items-start
+   pb-20
+  border-b
+  border-[#D4A24C]/20"
         >
           {/* Logo */}
-          <div>
+          <div
+            // className="lg:col-span-3"
+            //   className="
+            //     xl:col-span-3
+
+            //     flex
+            //     flex-col
+
+            //     items-center
+            //     md:items-start
+
+            //     text-center
+            //     md:text-left
+
+            //     w-full
+            // "
+            className="
+xl:col-span-3
+lg:col-span-3
+w-full
+flex
+flex-col
+items-center
+lg:items-start
+text-center
+lg:text-left
+"
+          >
             <motion.img
               src={logo}
               alt="3G Decorative Group"
-              className="w-44 lg:w-52 mb-8"
+              // className="w-44 lg:w-52 mb-8"
               animate={{
                 filter: [
                   "drop-shadow(0 0 0px #D4A24C)",
@@ -64,10 +125,43 @@ border-[#D4A24C]/20
                 duration: 4,
                 repeat: Infinity,
               }}
+              // className="
+              //   w-36
+              //   sm:w-40
+              //   md:w-44
+              //   xl:w-52
+
+              //   mb-8
+
+              //   mx-auto
+              //   md:mx-0
+              //   "
+              className="
+                w-36
+                sm:w-40
+                md:w-44
+                xl:w-52
+                mb-8
+                mx-auto
+                md:mx-0
+                "
             />
 
             <p
-              className="text-[#D7D0C7] leading-8 text-sm"
+              // className="text-[#D7D0C7] leading-8 text-sm"
+              className="
+text-[#D7D0C7]
+leading-8
+text-sm
+
+max-w-sm
+
+mx-auto
+md:mx-0
+
+text-center
+md:text-left
+"
               style={{
                 fontFamily: "'Parkinsans',sans-serif",
               }}
@@ -76,7 +170,10 @@ border-[#D4A24C]/20
               timeless sophistication.
             </p>
 
-            <div className="flex justify-center lg:justify-start gap-4 mt-8">
+            <div
+              className="flex justify-center lg:justify-start gap-4 mt-8
+            "
+            >
               {[Instagram, Facebook, Linkedin].map((Icon, index) => (
                 <motion.div
                   key={index}
@@ -107,7 +204,7 @@ border-[#D4A24C]/20
 
           {/* Quick Links */}
 
-          <div>
+          {/* <div>
             <h3
               className="
               text-[#D4A24C]
@@ -164,11 +261,11 @@ border-[#D4A24C]/20
                 />
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
           {/* Services */}
 
-          <div>
+          {/* <div>
             <h3
               className="
             text-[#D4A24C]
@@ -190,16 +287,16 @@ border-[#D4A24C]/20
                 key={item}
                 whileHover={{ x: 8 }}
                 className="
-            group
-            flex
-            justify-between
-            items-center
-            mb-5
-            border-b
-            border-[#D4A24C]/10
-            pb-3
-            cursor-pointer
-            "
+                group
+                flex
+                justify-between
+                items-center
+                mb-5
+                border-b
+                border-[#D4A24C]/10
+                pb-3
+                cursor-pointer
+                "
                 style={{
                   fontFamily: "'Parkinsans',sans-serif",
                   fontSize: "15px",
@@ -207,9 +304,9 @@ border-[#D4A24C]/20
               >
                 <span
                   className="
-            group-hover:text-[#D4A24C]
-            transition-all
-            "
+                    group-hover:text-[#D4A24C]
+                    transition-all
+                    "
                 >
                   {item}
                 </span>
@@ -224,23 +321,126 @@ border-[#D4A24C]/20
                 />
               </motion.div>
             ))}
+          </div> */}
+
+          {/* Google Map */}
+
+          <div
+            // className="lg:col-span-6"
+            //             className="
+            // xl:col-span-6
+            // lg:col-span-6
+            // w-full
+            // "
+            className="lg:col-span-6 flex flex-col"
+          >
+            <h3
+              // className="text-[#D4A24C] mb-8 text-center lg:text-left tracking-[0.2em] mt-6"
+              className="
+                text-[#D4A24C]
+                mb-8
+                tracking-[0.2em]
+                text-center
+                md:text-left
+                "
+            >
+              FIND US
+            </h3>
+
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              //   className="
+              //   overflow-hidden
+              //   rounded-3xl
+              //   border
+              //   border-[#D4A24C]/20
+              //   shadow-xl
+              //   h-[260px]
+              //   w-full
+              // "
+              //               className="
+              // overflow-hidden
+
+              // rounded-[26px]
+
+              // border
+              // border-[#D4A24C]/20
+
+              // shadow-xl
+
+              // w-full
+
+              // mx-auto
+
+              // h-[240px]
+              // sm:h-[280px]
+              // md:h-[320px]
+              // lg:h-[360px]
+              // xl:h-[400px]
+              // "
+              className="
+    overflow-hidden
+    rounded-[24px]
+    border
+    border-[#D4A24C]/20
+
+    aspect-[16/9]
+
+    w-full
+    max-h-[280px]
+  "
+            >
+              <iframe
+                title="3G Decorative Group Location"
+                src="https://www.google.com/maps?q=Kolkata,West+Bengal&output=embed"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                style={{ border: 0 }}
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
           </div>
 
           {/* Contact */}
 
-          <div>
+          <div
+            // className="lg:col-span-3"
+            className="
+xl:col-span-3
+lg:col-span-3
+w-full
+"
+          >
             <h3
+              //   className="
+              // text-[#D4A24C]
+              // mb-8
+              // mt-6
+              // tracking-[0.2em]
+              // "
               className="
-            text-[#D4A24C]
-            mb-8
-            tracking-[0.2em]
-            "
+text-[#D4A24C]
+
+mb-8
+
+tracking-[0.2em]
+
+text-center
+md:text-left
+"
             >
               CONTACT
             </h3>
 
             <div
-              className="space-y-6"
+              // className="space-y-6"
+              className="
+space-y-6
+
+w-full
+"
               style={{
                 fontFamily: "'Parkinsans',sans-serif",
                 fontSize: "15px",

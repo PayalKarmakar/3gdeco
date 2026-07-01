@@ -321,7 +321,10 @@ function Hero({ onNavigate }: { onNavigate: ServicesProps["onNavigate"] }) {
               { text: "Design. Build.", gold: false },
               { text: "Deliver ", gold: false },
             ].map(({ text }, i) => (
-              <div key={i} style={{ overflow: "hidden" }}>
+              <div
+                key={i}
+                style={{ overflow: "hidden", paddingBottom: "10px" }}
+              >
                 <motion.span
                   initial={{ y: "110%", opacity: 0 }}
                   animate={{ y: "0%", opacity: 1 }}
@@ -744,7 +747,7 @@ function WhyUs() {
           >
             Why Choose{" "}
             <span className="bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] bg-clip-text text-transparent">
-              3G Deco?
+              3G Decorative Group?
             </span>
           </motion.h2>
         </div>
@@ -1059,19 +1062,6 @@ function ProcessStrip() {
               </span>
             </motion.h2>
           </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-[#4a4540] max-w-xs lg:text-right hidden md:block"
-            style={{
-              fontFamily: "'Parkinsans', sans-serif",
-              fontSize: "14px",
-              lineHeight: 1.75,
-            }}
-          >
-            Hover each stage to see what happens behind the scenes.
-          </motion.p>
         </div>
 
         {/* Cards grid */}

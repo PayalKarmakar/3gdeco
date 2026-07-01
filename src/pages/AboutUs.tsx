@@ -424,6 +424,13 @@ function HeroSection({
                     rgba(8,6,5,0.12) 70%,
                     rgba(8,6,5,0) 100%
                 ),
+                linear-gradient(
+                      270deg,
+                      rgba(8,6,5,0.22) 0%,
+                      rgba(8,6,5,0.14) 18%,
+                      rgba(8,6,5,0.08) 35%,
+                      rgba(8,6,5,0) 60%
+                  ),
 
                 linear-gradient(
                     180deg,
@@ -1184,7 +1191,7 @@ function TeamSection() {
               The Minds Behind
               <br />
               <span className="bg-gradient-to-r from-[#f3bb27] to-[#ea7a12] bg-clip-text text-transparent">
-                3G Deco
+                3G Decorative Group
               </span>
             </motion.h2>
           </div>
