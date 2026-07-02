@@ -422,7 +422,7 @@ export default function App() {
       {/* Hero Section - Premium Editorial Framing */}
       <HeroSection />
 
-      {/* Animated Expertise Section - Blended with Hero */}
+      {/* Crafting Expertise Section - Blended with Hero */}
       <section
         id="features"
         className="relative bg-[#2E2723] px-6 lg:px-8"

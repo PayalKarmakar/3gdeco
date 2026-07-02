@@ -163,202 +163,6 @@ function MarqueeStrip() {
   );
 }
 
-/* ─── Hero Banner ─── */
-// function HeroSection({
-//   onNavigate,
-// }: {
-//   onNavigate: (p: "home" | "aboutus") => void;
-// }) {
-//   const containerRef = useRef<HTMLElement>(null);
-//   const { scrollYProgress } = useScroll({
-//     target: containerRef,
-//     offset: ["start start", "end start"],
-//     layoutEffect: false,
-//   });
-//   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-//   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
-//   const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-
-//   const words = ["About", "Us"];
-
-//   return (
-//     <section
-//       ref={containerRef}
-//       style={{
-//         position: "relative",
-//         height: "88vh",
-//         minHeight: "620px",
-//         overflow: "hidden",
-//       }}
-//     >
-//       {/* Parallax BG — conference room */}
-//       <motion.div className="absolute inset-0 z-0" style={{ y: imgY }}>
-//         <img
-//           src="https://images.unsplash.com/photo-1772112334844-2eed0111e690?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
-//           alt="Corporate conference room"
-//           className="w-full h-full object-cover scale-110"
-//         />
-//         <div
-//           className="absolute inset-0"
-//           style={{
-//             background:
-//               "linear-gradient(120deg, rgba(26,23,20,0.92) 0%, rgba(46,39,35,0.78) 45%, rgba(26,23,20,0.50) 100%)",
-//           }}
-//         />
-//       </motion.div>
-
-//       {/* Gold top bar */}
-//       <motion.div
-//         initial={{ scaleX: 0 }}
-//         animate={{ scaleX: 1 }}
-//         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-//         className="absolute top-0 left-0 right-0 h-[3px] origin-left z-20"
-//         style={{
-//           background: "linear-gradient(90deg, #f3bb27, #ea7a12, #f3bb27)",
-//         }}
-//       />
-
-//       {/* Ambient orb */}
-//       <motion.div
-//         className="absolute top-1/3 right-1/3 w-80 h-80 rounded-full pointer-events-none z-0"
-//         style={{
-//           background:
-//             "radial-gradient(circle, rgba(243,187,39,0.10) 0%, transparent 70%)",
-//           filter: "blur(50px)",
-//         }}
-//         animate={{ scale: [1, 1.25, 1] }}
-//         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-//       />
-
-//       {/* Content */}
-//       <motion.div
-//         className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-8 lg:px-16"
-//         style={{ y: textY, opacity }}
-//       >
-//         {/* Breadcrumb */}
-//         <motion.div
-//           initial={{ opacity: 0, x: -16 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.6, delay: 0.35 }}
-//           className="flex items-center gap-3 mb-10"
-//         >
-//           <button
-//             onClick={() => onNavigate("home")}
-//             className="text-[#F5F1EA]/45 hover:text-[#f3bb27] text-[11px] uppercase tracking-[0.25em] transition-colors"
-//             style={{ fontFamily: "'Parkinsans', sans-serif" }}
-//           >
-//             Home
-//           </button>
-//           <ChevronRight className="size-3 text-[#f3bb27]/35" />
-//           <span
-//             className="text-[#f3bb27] text-[11px] uppercase tracking-[0.25em]"
-//             style={{ fontFamily: "'Parkinsans', sans-serif" }}
-//           >
-//             About Us
-//           </span>
-//         </motion.div>
-
-//         {/* Label */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 8 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.6, delay: 0.45 }}
-//           className="flex items-center gap-4 mb-7"
-//         >
-//           <div className="w-10 h-px bg-gradient-to-r from-[#f3bb27] to-[#ea7a12]" />
-//           <span
-//             className="text-[#f3bb27] text-[11px] uppercase tracking-[0.3em]"
-//             style={{ fontFamily: "'Parkinsans', sans-serif" }}
-//           >
-//             Our Story
-//           </span>
-//         </motion.div>
-
-//         {/* Heading — word by word */}
-//         <div className="overflow-hidden mb-7 flex flex-wrap gap-x-6">
-//           {words.map((word, wi) => (
-//             <motion.span
-//               key={wi}
-//               initial={{ y: "105%", opacity: 0 }}
-//               animate={{ y: "0%", opacity: 1 }}
-//               transition={{
-//                 duration: 0.95,
-//                 delay: 0.55 + wi * 0.14,
-//                 ease: [0.22, 1, 0.36, 1],
-//               }}
-//               style={{
-//                 display: "inline-block",
-//                 fontFamily: "'Parkinsans', sans-serif",
-//                 fontSize: "clamp(64px, 9vw, 112px)",
-//                 fontWeight: 400,
-//                 lineHeight: "90%",
-//                 letterSpacing: "-0.03em",
-//                 color: wi === 1 ? "transparent" : "#F5F1EA",
-//                 WebkitTextStroke:
-//                   wi === 1 ? "1.5px rgba(243,187,39,0.65)" : "none",
-//               }}
-//             >
-//               {word}
-//             </motion.span>
-//           ))}
-//         </div>
-
-//         <motion.p
-//           initial={{ opacity: 0, y: 16 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8, delay: 0.9 }}
-//           className="text-[#a09890] max-w-md"
-//           style={{
-//             fontFamily: "'Parkinsans', sans-serif",
-//             fontSize: "16px",
-//             lineHeight: 1.8,
-//           }}
-//         >
-//           Delivering end-to-end corporate and civil interior solutions — from
-//           cafeteria fit-outs to industrial shed builds — since 2009.
-//         </motion.p>
-
-//         {/* Scroll cue */}
-//         <motion.div
-//           initial={{ opacity: 0 }}
-//           animate={{ opacity: 1 }}
-//           transition={{ delay: 1.6 }}
-//           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-//         >
-//           <span
-//             className="text-[#F5F1EA]/25 text-[10px] uppercase tracking-[0.3em]"
-//             style={{ fontFamily: "'Parkinsans', sans-serif" }}
-//           >
-//             Scroll
-//           </span>
-//           <motion.div
-//             animate={{ y: [0, 7, 0] }}
-//             transition={{ duration: 1.4, repeat: Infinity }}
-//             className="w-px h-8 bg-gradient-to-b from-[#f3bb27]/50 to-transparent"
-//           />
-//         </motion.div>
-//       </motion.div>
-
-//       {/* Bottom-right badge */}
-//       <motion.div
-//         initial={{ opacity: 0, scale: 0.85 }}
-//         animate={{ opacity: 1, scale: 1 }}
-//         transition={{ duration: 0.7, delay: 1.2 }}
-//         className="absolute bottom-14 right-10 hidden lg:flex items-center gap-3 px-5 py-3 border border-[#f3bb27]/20 backdrop-blur-sm z-10"
-//         style={{ borderRadius: "100px", background: "rgba(26,23,20,0.65)" }}
-//       >
-//         <div className="w-2 h-2 rounded-full bg-[#f3bb27] animate-pulse" />
-//         <span
-//           className="text-[#F5F1EA]/80 text-xs"
-//           style={{ fontFamily: "'Parkinsans', sans-serif" }}
-//         >
-//           Est. 2009 · Corporate & Civil Specialists
-//         </span>
-//       </motion.div>
-//     </section>
-//   );
-// }
-
 function HeroSection({
   onNavigate,
 }: {
@@ -371,7 +175,16 @@ function HeroSection({
         position: "relative",
       }}
     >
-      <div className="relative overflow-hidden rounded-[32px] h-[760px] w-full ">
+      <div
+        className="
+        relative
+        overflow-hidden
+        rounded-[20px] md:rounded-[32px]
+        w-full
+        min-h-screen
+        lg:min-h-[760px]
+        "
+      >
         {/* ── Full-bleed background image ── */}
         <div className="absolute inset-0 z-0">
           <img
@@ -934,42 +747,103 @@ function AboutSection() {
           >
             {/* GRID */}
             <div
+              // className="
+              //           relative
+              //             w-full
+              //             max-w-[620px]
+              //             h-[620px]
+              //             mx-auto
+              //           "
               className="
-                        relative
-                          w-full
-                          max-w-[620px]
-                          h-[620px]
-                          mx-auto
-                        "
+                relative
+                w-full
+                max-w-[620px]
+                mx-auto
+                px-3
+                md:px-0
+                aspect-square
+                md:aspect-auto
+                md:h-[620px]
+                min-h-[420px]
+                sm:min-h-[520px]
+                "
             >
               {[
+                // {
+                //   img: aboutImages[0],
+                //   top: "0px",
+                //   left: "0px",
+                //   width: "270px",
+                //   height: "220px",
+                // },
+                // {
+                //   img: aboutImages[1],
+                //   top: "40px",
+                //   left: "285px",
+                //   width: "250px",
+                //   height: "300px",
+                // },
+                // {
+                //   img: aboutImages[2],
+                //   top: "240px",
+                //   left: "0px",
+                //   width: "270px",
+                //   height: "300px",
+                // },
+                // {
+                //   img: aboutImages[3],
+                //   top: "355px",
+                //   left: "285px",
+                //   width: "270px",
+                //   height: "220px",
+                // },
                 {
                   img: aboutImages[0],
-                  top: "0px",
-                  left: "0px",
-                  width: "270px",
-                  height: "220px",
+                  top: "0%",
+                  left: "0%",
+                  width: "40%",
+                  height: "36%",
+
+                  desktopTop: "0px",
+                  desktopLeft: "0px",
+                  desktopWidth: "270px",
+                  desktopHeight: "220px",
                 },
                 {
                   img: aboutImages[1],
-                  top: "40px",
-                  left: "285px",
-                  width: "250px",
-                  height: "300px",
+                  top: "6%",
+                  left: "45%",
+                  width: "40%",
+                  height: "46%",
+
+                  desktopTop: "40px",
+                  desktopLeft: "285px",
+                  desktopWidth: "250px",
+                  desktopHeight: "300px",
                 },
                 {
                   img: aboutImages[2],
-                  top: "240px",
-                  left: "0px",
-                  width: "270px",
-                  height: "300px",
+                  top: "42%",
+                  left: "0%",
+                  width: "40%",
+                  height: "46%",
+
+                  desktopTop: "240px",
+                  desktopLeft: "0px",
+                  desktopWidth: "270px",
+                  desktopHeight: "300px",
                 },
                 {
                   img: aboutImages[3],
-                  top: "355px",
-                  left: "285px",
-                  width: "270px",
-                  height: "220px",
+                  top: "58%",
+                  left: "45%",
+                  width: "40%",
+                  height: "36%",
+
+                  desktopTop: "355px",
+                  desktopLeft: "285px",
+                  desktopWidth: "270px",
+                  desktopHeight: "220px",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -982,12 +856,28 @@ function AboutSection() {
                     duration: 0.55,
                     ease: [0.22, 1, 0.36, 1],
                   }}
+                  // style={{
+                  //   position: "absolute",
+                  //   top: item.top,
+                  //   left: item.left,
+                  //   width: item.width,
+                  //   height: item.height,
+                  // }}
                   style={{
                     position: "absolute",
-                    top: item.top,
-                    left: item.left,
-                    width: item.width,
-                    height: item.height,
+
+                    top: window.innerWidth >= 768 ? item.desktopTop : item.top,
+
+                    left:
+                      window.innerWidth >= 768 ? item.desktopLeft : item.left,
+
+                    width:
+                      window.innerWidth >= 768 ? item.desktopWidth : item.width,
+
+                    height:
+                      window.innerWidth >= 768
+                        ? item.desktopHeight
+                        : item.height,
                   }}
                   className="
                               overflow-hidden
@@ -1028,17 +918,11 @@ function AboutSection() {
                                 shadow-[0_0_18px_rgba(215,162,75,.45)]
                                 "
                   >
-                    <span
-                      className="
-                                  text-[#C59131]
-                                  text-xl
-                                  "
-                    >
-                      +
-                    </span>
+                    <span className="text-[#C59131]text-xl">+</span>
                   </div>
                 </motion.div>
               ))}
+
               {/* CENTER 3G BADGE */}
 
               <motion.div
@@ -1047,8 +931,10 @@ function AboutSection() {
                           z-40
                           "
                 style={{
-                  left: "30%",
-                  top: "32%",
+                  // left: "30%",
+                  left: window.innerWidth >= 768 ? "30%" : "50%",
+                  // top: "32%",
+                  top: window.innerWidth >= 768 ? "32%" : "48%",
                   transform: "translate(-50%,-50%)",
                 }}
                 initial={{
@@ -1092,12 +978,18 @@ function AboutSection() {
                     duration: 3,
                     repeat: Infinity,
                   }}
+                  // className="
+                  //       absolute
+                  //       inset-0
+                  //       rounded-full
+                  //       blur-xl
+                  //       "
                   className="
-                        absolute
-                        inset-0
-                        rounded-full
-                        blur-xl
-                        "
+                      absolute
+                      inset-3
+                      rounded-full
+                      blur-xl
+                      "
                   style={{
                     background:
                       "radial-gradient(circle,#D7A24B66 0%,transparent 70%)",
@@ -1125,8 +1017,12 @@ function AboutSection() {
                   }}
                 />
               </motion.div>
+
+              {/* CENTER 3G BADGE ENDS */}
             </div>
           </motion.div>
+
+          {/* RIGHT IMAGE GRID ENDS*/}
         </div>
       </div>
     </section>
